@@ -1,3 +1,5 @@
+![PerfectJpattern](http://perfectjpattern.sourceforge.net/images/logos/perfectjpattern.png)
+
 # PerfectJpattern
 PerfectJPattern is a framework and catalog of perfectionated and componentized Java Design Patterns. A componentized pattern is in essence a context-independent, reusable and type-safe variation of the original pattern that covers at least as many use-cases as the original pattern and that does not require developers to re-implement the same boilerplate code in every different context. Design Patterns are reusable in terms of design, componentized patterns are reusable in terms of design and code.
 
