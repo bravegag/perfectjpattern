@@ -1,0 +1,26 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>PerfectJPattern References</title>
+  </properties>
+  <body>
+    <section name="References">
+      <span style="white-space:nowrap; font-weight: bold; font-size: 1.25em">
+      <p><ul>      
+      	<li><i><a href="http://www.amazon.com/Object-Oriented-Software-Construction-Prentice-Hall-International/dp/0136291554">
+      	Object Oriented Software Construction (2nd Edition)</a> 2000, Bertrand Meyer</i></li>
+      	<li><i><a href="http://se.inf.ethz.ch/people/arnout/patterns/">
+      	From Patterns to Components</a> 2004, Karine Arnout</i></li>
+      	<li><i><a href="http://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional/dp/0201633612/ref=pd_bbs_sr_1/105-6863410-7819634?ie=UTF8&amp;s=books&amp;qid=1187547993&amp;sr=1-1">
+      	Design Patterns Elements of Reusable Object Oriented Software</a> 1995, GoF</i></li>
+      	<li><i><a href="http://www.onjava.com/pub/a/onjava/2003/05/21/delegates.html">A Java Programmer Looks at 
+      	C-Sharp Delegates</a> 2003, Steven M. Lewis, Wilhelm Fitzpatrick</i></li>
+      	<li><i><a href="http://www.amazon.com/Head-First-Design-Patterns/dp/0596007124">Head First Design Patterns</a> 
+      	2004, Elisabeth Freeman, Eric Freeman, Bert Bates, Kathy Sierra</i></li>
+      </ul>
+      </p>            
+      </span>      
+    </section>
+  </body>
+</document>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+  <name>perfectjpattern-examples</name>
+  <comment>PerfectJPattern Examples. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects>
+    <project>perfectjpattern-api</project>
+    <project>perfectjpattern-core</project>
+    <project>perfectjpattern-jee</project>
+    <project>perfectjpattern-hibernate</project>
+    <project>perfectjpattern-spring</project>
+    <project>perfectjpattern-testcommon</project>
+    <project>perfectjpattern-testsupport</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>

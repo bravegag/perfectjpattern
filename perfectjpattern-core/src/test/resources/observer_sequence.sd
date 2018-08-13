@@ -1,0 +1,20 @@
+myExample:Example[a]
+/mySubject:ISubject<ChangedState>
+/myObserver1:IObserver<ChangedState>
+/myObserver2:IObserver<ChangedState>
+
+myExample:mySubject.new
+myExample:myObserver1.new
+myExample:myObserver2.new
+
+myExample:mySubject.attach(myObserver1, myObserver2)
+myExample:mySubject.notifyObservers(new ChangedState(...))
+[c:loop for all Observers in Subject]
+  mySubject:myObserver1.update(aState)
+  mySubject:myObserver2.update(aState)
+[/c]
+myExample:mySubject.detach(myObserver2)
+myExample:mySubject.notifyObservers(new ChangedState(...))
+[c:loop for all Observers in Subject]
+  mySubject:myObserver1.update(aState)
+[/c]

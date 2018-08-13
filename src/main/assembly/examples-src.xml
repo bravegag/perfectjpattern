@@ -1,0 +1,38 @@
+<assembly>
+  <id>examples-src</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <includes>
+        <include>README*</include>
+        <include>LICENSE*</include>
+        <include>COPYING*</include>
+        <include>NOTICE*</include>
+      </includes>
+    </fileSet>
+    
+    <!-- perfectjpattern-examples -->
+    <fileSet>
+      <directory>target/site/perfectjpattern-examples/apidocs</directory>
+      <outputDirectory>docs/examples</outputDirectory>
+      <includes>
+        <include>**</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>perfectjpattern-examples</directory>
+      <outputDirectory>perfectjpattern-examples</outputDirectory>
+      <includes>
+        <include>README*</include>
+        <include>*.xml</include>
+        <include>*.license</include>
+        <include>src/**</include>
+      </includes>
+      <excludes>
+        <exclude>src/site/**</exclude>
+      </excludes>
+    </fileSet>
+  </fileSets>
+</assembly>

@@ -1,0 +1,117 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Observer Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF Observer Pattern">
+      <p><i>Define a one-to-many dependency between objects so that 
+      when one object changes state, all its dependents are notified and updated automatically.</i>
+      </p>
+    </section>    
+    <section name="Componentized Observer Pattern">                  
+        <p>PerfectJPattern's componentized version of the Observer Pattern provides the following advantages:
+        <ul>
+        	<li><b>Offers both Push and Pull models</b> but I find the Push to be better for the 
+        	following reasons. In the Push model Observers subscribe to a single event type therefore 
+        	require one single type of event data (if any). The Push model is more general than the 
+        	Pull model and completely decouples the Observers from the Subject. The Push model 
+        	ensures that Observers receive exactly the information they require, this solution 
+        	offers the following advantages: 
+        	<ul>
+	        	<li>Observers are not coupled to an external e.g. state-querying interface. 
+	        	This additional coupling exists in the Pull model shown in the GoF example where Observers 
+	        	needs to know where to look for when an event occurs e.g. the Subject.
+	        	</li>
+	        	<li>Observers do not need to work hard to figure out what information changed.</li>
+	        	<li>Self-consistent state is guaranteed at all times. Since Observers receive
+	        	a snapshot of the exact state at the moment of the notification, there is no risk that 
+	        	the Observers may get a wrong view of the state. 
+	        	</li>
+        	</ul>
+        	</li>
+        	<li><b>Provides a type-safe solution: </b>Subject and Observer use genericity
+        	to identify what type of data is associated with an event e.g. <code>IEventData</code> subtype. 
+        	Type-safety is enforced because Subject instances will only subscribe/attach Observers that 
+        	comply with the correct event data type whereas e.g. Sun JDK's Observer implementation relies 
+        	on an <code>Object</code> type-unsafe parameter.
+        	</li>
+        	<li><b>Provides protection against transgressional Observers: </b> Subject 
+        	implementation protects itself and its clients from defective Observers 
+        	that throw unchecked exceptions. Observers that during the handling of the <code>update(...)</code> 
+        	method throw an unchecked exception are automatically detached. Not doing so would
+        	put Subject instances at risk of the unexpected behavior coming from faulty Observers.
+        	</li>
+        </ul>
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/observer_class.png" border="0" alt="" title="PerfectJPattern's Observer Pattern" />		
+		<br/>
+        <h3>UML Sequence Diagram</h3>
+		<br/>
+		<img valign="top" src="images/observer_sequence.png" border="0" alt="" title="PerfectJPattern's Observer Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/observer/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/observer/IClock.html"><b>IClock.java</b></a>: Abstract definition of a Clock</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/observer/IWidget.html"><b>IWidget.java</b></a>: Abstract definition of a Widget</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/observer/AnalogClock.html"><b>AnalogClock.java</b></a>: Concrete Observer implementation</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/observer/DigitalClock.html"><b>DigitalClock.java</b></a>: Concrete Observer implementation</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/observer/AntiqueClock.html"><b>AntiqueClock.java</b></a>: Legacy code event target without abstract coupling</li>      
+        </ul>
+        <h3>Extensions</h3>
+        <ul>
+        	<li><b><code>ObserverProxy</code> implementation: </b> allows plain POJO types and free
+        	method signatures (currently only one parameter) to be targeted as result of a notification. 
+        	This extension removes the otherwise needed dependency from PerfectJPattern allowing to 
+        	directly target existing legacy code that does not subtype <code>IObserver</code>.
+        	</li>
+        	<li><b><code>AsynchronousSubject</code> implementation: </b> executes each Observer <code>update(...)</code>
+        	method in a separate thread so that Subject's client is minimally blocked waiting for all Observers to be
+        	notified and handle their <code>update(...)</code> method, specially when there is a large number of Observer 
+        	subscribed. This facility is also recommended because would protect Subject instances and its client from
+        	a possible greedy Observer e.g. an Observer whose <code>update(...)</code> implementation goes to an infinite
+        	loop. It is highly encouraged to use an <a href="http://en.wikipedia.org/wiki/Immutable_object">
+        	<b>Immutable Object</b></a> type as event data.
+        	</li>        	 
+        	<li>Additional extensions are possible thanks to the pluggability of the componentized 
+        	patterns e.g. Composite Subject or Synchronized Observers using the <code>Composite</code> and
+        	<code>SynchronizedProxy</code> componentized patterns.
+        	<ul>
+        	<li>Synchronized Observer:  Observer with extended protection from 
+        	concurrent access e.g. one Observer instance attaches/subscribes to multiple Subject 
+        	instances that send notifyObservers(...) messages from separate threads; proxying the 
+        	Observer instance with a <code>SynchronizedProxy</code> avoids race condition in the 
+        	Observer update(...) method.</li>
+        	<li>Composite Subject implementation: Offers Observer instances the convenience of not 
+        	having to know and subscribe directly to many different Subject instances but to the 
+        	single Composite one, in effect they achieve a multiple subscription transparently.</li>
+        	</ul>
+        	</li>        	        	
+        </ul>                
+        <h3>Notes</h3>
+            While the preferred model in PerfectJPattern's Observer is the Push model, it is absolutely 
+        	not compulsory to associate data with an event. PerfectJPattern includes an implementation 
+        	<code>ParameterlessSubject</code> that provides a parameterless <code>notifyObservers()</code> 
+        	convenience method. The Observers are required to subclass the type Observer&lt;NullEventData&gt;. 
+        	In this case the <code>update(NullEventData anEventData)</code> method will always receive the 
+        	Singleton instance of <code>NullEventData</code> see 
+        	<a href="http://en.wikipedia.org/wiki/Null_Object_pattern"><b>NullObject Pattern</b></a> to avoid the 
+        	potential risk of <code>NullPointerException</code> if the Observer implementation tries reading 
+        	the event data parameter.        
+        	<br/><br/>
+        	Observes are also assumed not to need to know which Subject published an event. When it is a must to 
+	       	provide a different behavior per different Subject then it is recommended creating a different
+	       	Observer type that will handle such event differently; this approach will consequence in a 
+	       	more reusable and maintainable design anyway.
+        	<br/><br/>
+	       	Event data types e.g. subtype of <code>IEventData</code> are highly (really!) encouraged to be an 
+	       	<a href="http://en.wikipedia.org/wiki/Immutable_object"><b>Immutable Object</b></a> type. Making 
+	       	event data Immutable offers the extra advantage not only of a self-consistent state notifying 
+	       	Observers but also no risk of race-hazards when Subject notifications are published from 
+	       	separate threads.
+		</p>
+    </section>    
+  </body>
+</document>

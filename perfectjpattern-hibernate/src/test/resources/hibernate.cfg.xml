@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+		<!-- Settings for a local HSQL (testing) database -->
+		<property name="dialect">org.hibernate.dialect.HSQLDialect</property>
+		<property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
+		<property name="connection.url">jdbc:hsqldb:mem:test</property>
+		<property name="connection.username">sa</property>
+		<property name="connection.password"></property>
+		<property name="connection.shutdown">true</property>
+		<property name="connection.autocommit">false</property> 	
+
+	    <!-- 
+	         thread is the short name for ThreadLocalSessionContext
+      	     and let Hibernate bind the session automatically to the thread
+    	-->
+    	<property name="current_session_context_class">thread</property>    	
+
+		<!-- Use the Hibernate built-in pool for tests -->
+		<property name="connection.pool_size">1</property>
+
+		<!-- Disable batching so HSQLDB errors will propagate correctly  -->
+		<property name="jdbc.batch_size">0</property>
+
+		<!-- Use EHCache but not the query cache -->
+		<property name="cache.use_query_cache">false</property>
+		<property name="cache.use_minimal_puts">false</property>
+
+		<!-- Possible values: validate | update | create | create-drop -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+	
+		<!-- Print SQL to stdout -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+
+		<!-- Test Person mapping file -->
+		<mapping resource="org/perfectjpattern/example/model/Person.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

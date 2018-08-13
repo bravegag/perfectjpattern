@@ -1,0 +1,130 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Generic DAO Design Pattern</title>
+  </properties>
+  <body>
+    <section name="DAO Pattern">
+      <p><i>Abstracts from any direct type of database or persistence mechanism. Provides specific 
+      operations without exposing details of the database.</i></p>
+    </section>      
+    <section name="Componentized DAO Pattern">   
+       	<p>PerfectJPattern's componentized version of the DAO Pattern provides the following advantages:     
+        <ul>
+        	<li><b>Fine-grained multi-level design</b>: Pure JPA-based DAO provides the building block to 
+        	create a more specialized and feature-rich DAO that exploits non-JPA standard features. 
+        	Richer functionality proportionally correspond 
+        	to higher dependency requirements e.g. users able to afford Hibernate dependency can take 
+        	advantage of the full 
+        	<a href="xref/org/perfectjpattern/jee/api/integration/dao/IGenericDao.html"><b>IGenericDao</b></a> 
+        	implementation while those staying at pure JPA take advantage of an 
+        	<a href="xref/org/perfectjpattern/jee/api/integration/dao/IBaseDao.html"><b>IBaseDao</b></a> 
+        	implementation</li>
+        	<li><b>Abstract separation of read-only DAO</b>: Provides a read-only abstract view of the DAO 
+        	implementation that allows building read-only data layer API with ease i.e. exposing only
+        	<a href="xref/org/perfectjpattern/jee/api/integration/dao/IBaseReadOnlyDao.html"><b>
+        	IBaseReadOnlyDao</b></a> or 
+        	<a href="xref/org/perfectjpattern/jee/api/integration/dao/IGenericReadOnlyDao.html">
+        	<b>IGenericReadOnlyDao</b></a>. Another relevant use-case is mapping database views to 
+        	Model objects where the DAO should not allow changes to the underlying views. 
+        	This is a simple but generally overlooked concept. 
+        	</li>
+        	<li><b>High Reusability</b>: users are relieved from re-implementing DAOs and thus stay 
+        	away from the DAO-per-model anti-pattern. One single DAO implementation is reused for all models</li>
+        	<li><b>Client code simplicity</b>: Client code stays the simplest as it will use the same set of 
+        	PerfectJPattern's DAO interfaces in all contexts. Choosing one ORM implementation over another is just 
+        	a matter of switching to the correct Abstract Factory e.g. 
+        	<a href="xref/org/perfectjpattern/jee/integration/dao/JpaDaoFactory.html"><b>JpaDaoFactory</b></a>, 
+        	<a href="xref/org/perfectjpattern/jee/integration/dao/HibernateDaoFactory.html"><b>HibernateDaoFactory</b></a>, etc. 
+        	All concerns related to: 
+        	<ul>
+        		<li>Session or EntityManager Factory creation or JNDI lookup and closing</li>
+        		<li>Session or EntityManager access and handling</li>
+        		<li>Transaction lookup, access and handling</li>
+        	</ul>
+        	are implemented and encapsulated within the DAO framework with sensitive defaults. There is no 
+        	longer the need to copy and paste Util classes back and forth</li>
+        	<li><b>High Portability</b>: the same DAO implementation is reused in many different contexts e.g. 
+        	JPA or non-JPA and different target platforms CMP or Java SE. All incompatibilities affecting 
+        	DAO for JPA or DAO for Hibernate e.g. EntityManager vs Session, EntityTransaction vs Transaction, 
+        	Query, etc are resolved via PerfectJPattern's componentized 
+        	<a href="xref/org/perfectjpattern/core/structural/adapter/Adapter.html"><b>Adapter</b></a>. 
+        	PerfectJPattern offers these two abstract base implementations for reuse in EJB:
+        	<ul>
+        		<li><a href="xref/org/perfectjpattern/jee/integration/dao/AbstractJpaManagedBaseDao.html">
+        		<b>AbstractJpaManagedBaseDao</b></a>: extends JpaBaseDao and automatically integrates with your 
+        		EJB EntityManager/Session lifecycle providing reusable IBaseDao implementation</li>
+        		<li><a href="xref/org/perfectjpattern/jee/integration/dao/AbstractHibernateManagedGenericDao.html">
+        		<b>AbstractHibernateManagedGenericDao</b></a>: extends HibernateGenericDao and automatically integrates 
+        		with your EJB EntityManager/Session lifecycle providing reusable IGenericDao implementation</li>
+        	</ul>        	
+        	</li>
+        	<li><b>High productivity</b>: <a href="xref/org/perfectjpattern/jee/integration/dao/SpringGenericDao.html"><b>
+        	SpringGenericDao</b></a> inspired by the article <a href="http://www.ibm.com/developerworks/java/library/j-genericdao.html">
+        	Don't repeat the DAO</a>, provides automatic implementation of user-defined custom DAO interfaces 
+        	(subtype of IGenericDao) that map to adhoc named queries. PerfectJPattern Spring sub-module ships 
+        	with a reusable <code>genericDao-applicationContext.xml</code> that does all necessary wiring to get 
+        	the automatic mapping working. The bit of switching to more specific Session or Transaction 
+        	strategies and Factories or definition of custom DAO interfaces is project-specific and 
+        	need to be done by the user. Please see the Spring example code below.
+        	</li>
+        </ul>
+    	<br/>
+    	<br/>
+    	Please note that while PerfectJPattern goal is to maximize the quality of the client code 
+    	i.e. maintainability, reusability, productivity, portability; the configurations 
+    	and mappings that are framework-specific need to be provided by the user. Users can checkout 
+    	PerfectJPattern examples and tests for:
+    	<ul>
+    		<li>Example JPA configurations (using OpenJPA as provider) <code>persistence.xml</code> 
+    		and ORM in configuration <code>orm.xml</code></li>
+    		<li>Creating a many-to-many ORM Hibernate relation Customer-*Order*-Product see 
+    		<code>Example.hbm.xml</code></li>
+    		<li>Configuring Spring to define custom DAO interfaces and injecting those to a 
+    		<code>LocalDaoFactory</code> see <code>example-applicationContext.xml</code></li>
+    	</ul>
+    	<br/>
+    	<br/>
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/genericdao_class.png" border="0" alt="" title="PerfectJPattern's Generic Dao Pattern" />		
+		<br/>
+        <h3>JPA Example targeting EJB (tested on OpenJPA and OpenEJB)</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/jee/integration/dao/jpa/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/jee/integration/dao/jpa/MovieBaseDaoBean.html"><b>MovieBaseDaoBean.java</b></a>: 
+        	    Stateless Session EJB example that exposes <code>IBaseDao</code> by extending <code>AbstractJpaManagedBaseDao</code></li>      
+        	<li><a href="xref/org/perfectjpattern/jee/integration/dao/jpa/IMovieGenericDao.html"><b>IMovieGenericDao.java</b></a>: extends 
+        		<code>IGenericDAO</code> interface</li>
+        	<li><a href="xref/org/perfectjpattern/jee/integration/dao/jpa/MovieGenericDaoBean.html"><b>MovieGenericDaoBean.java</b></a>: 
+        		Stateless Session EJB example that exposes <code>IGenericDao</code> by extending <code>AbstractHibernateManagedGenericDao</code></li>      
+        	<li><a href="xref/org/perfectjpattern/example/model/Movie.html"><b>Movie.java</b></a>: Data model object example</li>      
+        </ul>	
+        <h3>Hibernate Example targeting Java SE</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/jee/integration/dao/hibernate/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/example/model/Customer.html"><b>Customer.java</b></a>: Data model object example</li>      
+        	<li><a href="xref/org/perfectjpattern/example/model/Product.html"><b>Product.java</b></a>: Data model object example</li>      
+        	<li><a href="xref/org/perfectjpattern/example/model/Order.html"><b>Order.java</b></a>: Data model object example</li>      
+        	<li><a href="xref/org/perfectjpattern/example/model/visitor/ToStringVisitor.html"><b>ToStringVisitor.java</b></a>: Visitor that 
+        	exemplifies externalizing toString implementations for a Data model</li>      
+        </ul>	
+        <h3>Spring Example targeting Java SE</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/jee/integration/dao/spring/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/jee/integration/dao/spring/LocalDaoFactory.html"><b>LocalDaoFactory.java</b></a>: project-specific 
+        	IGenericDaoFactory implementation that accepts automatic SpringGenericDao implementations via Spring IoC.</li>
+        	<li><a href="xref/org/perfectjpattern/jee/api/integration/dao/ICustomerDao.html"><b>ICustomerDao.java</b></a>: <code>IGenericDao</code> subtype 
+        	that maps to named queries and gets implemented automatically by <code>SpringGenericDao</code>. Note the use of 
+        	@QueryParameters annotation to map method arguments to Query parameters.</li>
+        	<li><a href="xref/org/perfectjpattern/example/model/Customer.html"><b>Customer.java</b></a>: Data model object example</li>      
+        	<li><a href="xref/org/perfectjpattern/example/model/Product.html"><b>Product.java</b></a>: Data model object example</li>      
+        	<li><a href="xref/org/perfectjpattern/example/model/Order.html"><b>Order.java</b></a>: Data model object example</li>      
+        	<li><a href="xref/org/perfectjpattern/example/model/visitor/ToStringVisitor.html"><b>ToStringVisitor.java</b></a>: Visitor that 
+        	exemplifies externalizing toString implementations for a Data model</li>      
+        </ul>	
+    	</p>                       	  
+    </section>  
+  </body>
+</document>
+

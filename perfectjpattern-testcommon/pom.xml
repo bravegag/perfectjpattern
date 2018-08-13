@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>perfectjpattern</artifactId>
+    <groupId>perfectjpattern</groupId>
+    <version>1.3.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>perfectjpattern</groupId>
+  <artifactId>perfectjpattern-testcommon</artifactId>
+  <name>PerfectJPattern Test Common</name>
+  <description>Common fixtures and code needed to test perfectjpattern's own implementations</description>
+  <url>http://perfectjpattern.sourceforge.net/</url>
+  <scm>
+    <connection>scm:svn:https://perfectjpattern.svn.sourceforge.net/svnroot/perfectjpattern</connection>
+    <developerConnection>scm:svn:https://perfectjpattern.svn.sourceforge.net/svnroot/perfectjpattern</developerConnection>
+    <url>http://perfectjpattern.svn.sourceforge.net/viewvc/perfectjpattern/</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+	  <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.easymock</groupId>
+      <artifactId>easymock</artifactId>
+      <version>${easymock.version}</version>
+    </dependency>    
+  </dependencies>
+  <reporting>
+    <outputDirectory>../target/site/${project.artifactId}</outputDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven-checkstyle-plugin.version}</version>
+        <configuration>
+          <enableRulesSummary>false</enableRulesSummary>
+          <configLocation>${project.parent.basedir}/checkstyle.xml</configLocation>
+        </configuration>
+      </plugin>      
+    </plugins>
+  </reporting>
+</project>

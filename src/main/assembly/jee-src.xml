@@ -1,0 +1,38 @@
+<assembly>
+  <id>jee-src</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <includes>
+        <include>README*</include>
+        <include>LICENSE*</include>
+        <include>COPYING*</include>
+        <include>NOTICE*</include>
+      </includes>
+    </fileSet>
+        
+    <!-- perfectjpattern-jee -->
+    <fileSet>
+      <directory>target/site/perfectjpattern-jee/apidocs</directory>
+      <outputDirectory>docs/jee</outputDirectory>
+      <includes>
+        <include>**</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>perfectjpattern-jee</directory>
+      <outputDirectory>perfectjpattern-jee</outputDirectory>
+      <includes>
+        <include>README*</include>
+        <include>*.xml</include>
+        <include>*.license</include>
+        <include>src/**</include>
+      </includes>
+      <excludes>
+        <exclude>src/site/**</exclude>
+      </excludes>
+    </fileSet>
+  </fileSets>
+</assembly>

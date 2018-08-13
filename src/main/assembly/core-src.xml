@@ -1,0 +1,38 @@
+<assembly>
+  <id>core-src</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <includes>
+        <include>README*</include>
+        <include>LICENSE*</include>
+        <include>COPYING*</include>
+        <include>NOTICE*</include>
+      </includes>
+    </fileSet>
+    
+    <!-- perfectjpattern-core -->
+    <fileSet>
+      <directory>target/site/perfectjpattern-core/apidocs</directory>
+      <outputDirectory>docs/core</outputDirectory>
+      <includes>
+        <include>**</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>perfectjpattern-core</directory>
+      <outputDirectory>perfectjpattern-core</outputDirectory>
+      <includes>
+        <include>README*</include>
+        <include>*.xml</include>
+        <include>*.license</include>
+        <include>src/**</include>
+      </includes>
+      <excludes>
+        <exclude>src/site/**</exclude>
+      </excludes>
+    </fileSet>
+  </fileSets>
+</assembly>

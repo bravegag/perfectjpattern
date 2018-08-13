@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.perfectjpattern.example.model">
+	<class name="Person" table="PERSON_" >
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" update="false" />
+		<property name="age" update="true" />
+	</class>
+	
+	<query name="Person.findByName.positional">
+		<![CDATA[select p from Person p where p.name = ? ]]>
+	</query>
+
+	<query name="Person.findByAge.named">
+		<![CDATA[select p from Person p where p.age = :age ]]>
+	</query>	
+</hibernate-mapping>

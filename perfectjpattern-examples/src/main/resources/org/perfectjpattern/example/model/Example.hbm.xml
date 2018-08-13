@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.perfectjpattern.example.model">
+
+	<!-- Customer is a strong entity that contains Orders -->	
+	<class name="Customer" table="CUSTOMER_" >
+		<id name="id" column="ID" >
+			<generator class="native" />
+		</id>
+		
+		<property name="name" column="NAME" update="false" />
+		
+		<!-- 
+			Note that using list then list-index must define the 
+		    column used for indexing the list and there may be 
+		    holes/null elements 
+		-->
+		<bag name="orders" cascade="all" lazy="false" >
+			<key column="CUSTOMER_ID" update="false" />
+			<one-to-many class="Order" not-found="exception" />				
+		</bag>			
+	</class>
+
+	<!-- Order is a weak entity that depends on Customer and contains Products -->	
+	<class name="Order" table="ORDER_" >
+		<id name="id" column="ID">
+			<generator class="native" />
+		</id>
+
+	    <many-to-one name="customer" class="Customer" column="CUSTOMER_ID" 
+	    	not-null="true" cascade="all" />
+
+		<set name="products" table="PRODUCT_ORDER_JOIN_" cascade="save-update, delete" >
+			<key column="ORDER_ID" />
+			<many-to-many class="Product" column="PRODUCT_ID" />
+		</set>		
+
+		<property name="date" column="DATE" update="false" />
+	</class>
+
+	<!-- Product is a strong entity and references the orders -->	
+	<class name="Product" table="PRODUCT_" >
+		<id name="id" column="ID" >
+			<generator class="native" />
+		</id>
+		
+		<property name="name" column="NAME" update="false" />
+		<property name="listPrice" column="LIST_PRICE" update="false" />
+
+		<set name="orders" table="PRODUCT_ORDER_JOIN_" cascade="save-update, delete" 
+			inverse="true" >
+			<key column="PRODUCT_ID" />
+			<many-to-many class="Order" column="ORDER_ID" />
+		</set>
+	</class>
+
+	<!-- Song is a strong entity -->	
+	<class name="Song" table="SONG_" >
+		<id name="id" column="ID" >
+			<generator class="native" />
+		</id>
+		
+		<property name="name" column="NAME" update="false" />		
+	</class>
+
+	<!-- Named SQL Query -->	
+	<query name="Customer.findByNumberOfOrdersBetween">
+		<![CDATA[SELECT c1
+			     FROM Customer c1 
+			     WHERE c1.id IN 
+			     	(SELECT c2.id 
+			         FROM Customer c2 
+			         	inner join c2.orders o 
+			         WHERE o.date BETWEEN :Begin AND :End 
+			         GROUP BY c2.id
+			         HAVING Count(*) >= :Minimum
+			        )
+             ]]>
+	</query>			
+	
+	<query name="Customer.findByTotalSpendingBetween">
+		<![CDATA[SELECT c1
+			     FROM Customer c1 
+			     WHERE c1.id IN 
+			     	(SELECT c2.id 
+			         FROM Customer c2 
+			         	inner join c2.orders o 
+			         	inner join o.products p
+			         WHERE o.date BETWEEN :Begin AND :End 
+			         GROUP BY c2.id
+			         HAVING SUM(p.listPrice) > :Total
+			        )
+             ]]>
+	</query>			
+</hibernate-mapping>

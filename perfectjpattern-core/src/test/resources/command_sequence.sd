@@ -1,0 +1,22 @@
+myExample:Example[a]
+/myInvoker:IInvoker
+/myCommand:ICommand
+/myReceiver:IReceiver
+
+[c Assembling the different parts]
+myExample:myInvoker.new()
+myExample:myCommand.new()
+myExample:myInvoker.setCommand(myCommand)
+myExample:myReceiver.new()
+myExample:myCommand.setReceiver(myReceiver)
+
+[c Command Pattern]
+myExample:myInvoker.setParameter(aParameter)
+myInvoker:myCommand.setParameter(aParameter)
+myExample:myInvoker.invoke()
+myInvoker:myCommand.execute()
+myCommand:myReceiver.setParameter(aParameter)
+myCommand:myReceiver.execute()
+myExample:myInvoker.getResult()
+myInvoker:myCommand.getResult()
+myCommand:myReceiver.getResult()

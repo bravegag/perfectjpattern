@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toplink:object-persistence version="Oracle TopLink - 11g (11.1.3.0.1) (Build 081030)" xmlns:opm="http://xmlns.oracle.com/ias/xsds/opm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:toplink="http://xmlns.oracle.com/ias/xsds/toplink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <opm:name>ExampleProject</opm:name>
+   <opm:class-mapping-descriptors>
+      <opm:class-mapping-descriptor xsi:type="toplink:relational-class-mapping-descriptor">
+         <opm:class>org.perfectjpattern.example.model.Person</opm:class>
+         <opm:alias>Person</opm:alias>
+         <opm:primary-key>
+            <opm:field table="PERSON_" name="ID" xsi:type="opm:column"/>
+         </opm:primary-key>
+         <opm:events xsi:type="toplink:event-policy"/>
+         <opm:querying xsi:type="toplink:query-policy">
+            <opm:queries>
+               <opm:query name="Person.findByAge.named" xsi:type="toplink:read-all-query">
+                  <opm:arguments>
+                     <opm:argument name="age">
+                        <opm:type>java.lang.Long</opm:type>
+                     </opm:argument>
+                  </opm:arguments>
+                  <toplink:bind-all-parameters>true</toplink:bind-all-parameters>
+                  <toplink:call xsi:type="toplink:ejbql-call">
+                     <toplink:ejbql>select p from Person p where p.age = :age</toplink:ejbql>
+                  </toplink:call>
+                  <toplink:reference-class>org.perfectjpattern.example.model.Person</toplink:reference-class>
+                  <toplink:outer-join-subclasses>false</toplink:outer-join-subclasses>
+                  <toplink:container xsi:type="toplink:list-container-policy">
+                     <toplink:collection-type>java.util.ArrayList</toplink:collection-type>
+                  </toplink:container>
+               </opm:query>
+               <opm:query name="Person.findByName.positional" xsi:type="toplink:read-all-query">
+                  <opm:arguments>
+                     <opm:argument name="1">
+                        <opm:type>java.lang.String</opm:type>
+                     </opm:argument>
+                  </opm:arguments>
+                  <toplink:bind-all-parameters>true</toplink:bind-all-parameters>
+                  <toplink:call xsi:type="toplink:ejbql-call">
+                     <toplink:ejbql>select p from Person p where p.name = ?1</toplink:ejbql>
+                  </toplink:call>
+                  <toplink:reference-class>org.perfectjpattern.example.model.Person</toplink:reference-class>
+                  <toplink:outer-join-subclasses>false</toplink:outer-join-subclasses>
+                  <toplink:container xsi:type="toplink:list-container-policy">
+                     <toplink:collection-type>java.util.ArrayList</toplink:collection-type>
+                  </toplink:container>
+               </opm:query>
+            </opm:queries>
+         </opm:querying>
+         <opm:attribute-mappings>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>age</opm:attribute-name>
+               <opm:get-method>getAge</opm:get-method>
+               <opm:set-method>setAge</opm:set-method>
+               <opm:field table="PERSON_" name="AGE" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>id</opm:attribute-name>
+               <opm:get-method>getId</opm:get-method>
+               <opm:set-method>setId</opm:set-method>
+               <opm:field table="PERSON_" name="ID" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>name</opm:attribute-name>
+               <opm:get-method>getName</opm:get-method>
+               <opm:set-method>setName</opm:set-method>
+               <opm:field table="PERSON_" name="NAME" xsi:type="opm:column"/>
+            </opm:attribute-mapping>
+         </opm:attribute-mappings>
+         <toplink:descriptor-type>independent</toplink:descriptor-type>
+         <toplink:sequencing>
+            <toplink:sequence-name>PERSON_SEQ</toplink:sequence-name>
+            <toplink:sequence-field table="PERSON_" name="ID" xsi:type="opm:column"/>
+         </toplink:sequencing>
+         <toplink:instantiation/>
+         <toplink:copying xsi:type="toplink:instantiation-copy-policy"/>
+         <toplink:tables>
+            <toplink:table name="PERSON_"/>
+         </toplink:tables>
+      </opm:class-mapping-descriptor>
+   </opm:class-mapping-descriptors>
+</toplink:object-persistence>

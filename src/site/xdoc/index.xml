@@ -1,0 +1,145 @@
+<document>
+	<properties>
+		<author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+		<title>PerfectJPattern Overview</title>
+	</properties>
+	<body>
+	    <div id="downloadbox">
+	      <div style="text-align:center;padding:10px 10px 0px 10px">
+	         <a href="https://twitter.com/PerfectJPattern" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @PerfectJPattern</a>
+	      </div>
+	      <h5>Download PerfectJPattern 1.3.0</h5>
+	      <p>
+	        <a href="http://sourceforge.net/project/showfiles.php?group_id=198235&amp;package_id=234803&amp;release_id=662635">
+	          <img valign="top" src="images/download.png" border="0" alt="" title="download"/>&#160;PerfectJPattern API</a>&#160;<small>(32kb)</small>
+	        <span style="font-size: smaller">
+	          <br/>
+	          <a href="release-notes.html">Release Notes</a>
+	        </span>
+	      </p>
+	      <p>
+	        <a href="http://sourceforge.net/project/showfiles.php?group_id=198235&amp;package_id=234803&amp;release_id=662635">
+	          <img valign="top" src="images/download.png" border="0" alt="" title="download"/>&#160;PerfectJPattern Core</a>&#160;<small>(54kb)</small>
+	        <span style="font-size: smaller">
+	          <br/>
+	          <a href="release-notes.html">Release Notes</a>
+	        </span>
+	      </p>
+	      <p>
+	        <a href="http://sourceforge.net/project/showfiles.php?group_id=198235&amp;package_id=234803&amp;release_id=662635">
+	          <img valign="top" src="images/download.png" border="0" alt="" title="download"/>&#160;PerfectJPattern JEE</a>&#160;<small>(29kb)</small>
+	        <span style="font-size: smaller">
+	          <br/>
+	          <a href="release-notes.html">Release Notes</a>
+	        </span>
+	      </p>
+	      <p>
+	        <a href="http://sourceforge.net/project/showfiles.php?group_id=198235&amp;package_id=234803&amp;release_id=662635">
+	          <img valign="top" src="images/download.png" border="0" alt="" title="download"/>&#160;PerfectJPattern Hibernate</a>&#160;<small>(24kb)</small>
+	        <span style="font-size: smaller">
+	          <br/>
+	          <a href="release-notes.html">Release Notes</a>
+	        </span>
+	      </p>
+	      <p>
+	        <a href="http://sourceforge.net/project/showfiles.php?group_id=198235&amp;package_id=234803&amp;release_id=662635">
+	          <img valign="top" src="images/download.png" border="0" alt="" title="download"/>&#160;PerfectJPattern EclipseLink</a>&#160;<small>(24kb)</small>
+	        <span style="font-size: smaller">
+	          <br/>
+	          <a href="release-notes.html">Release Notes</a>
+	        </span>
+	      </p>
+	      <p>
+	        <a href="http://sourceforge.net/project/showfiles.php?group_id=198235&amp;package_id=234803&amp;release_id=662635">
+	          <img valign="top" src="images/download.png" border="0" alt="" title="download"/>&#160;PerfectJPattern Spring</a>&#160;<small>(23kb)</small>
+	        <span style="font-size: smaller">
+	          <br/>
+	          <a href="release-notes.html">Release Notes</a>
+	        </span>
+	      </p>
+	      <p>
+	        <a href="http://sourceforge.net/project/showfiles.php?group_id=198235&amp;package_id=234803&amp;release_id=662635">
+	          <img valign="top" src="images/download.png" border="0" alt="" title="download"/>&#160;PerfectJPattern Examples</a>&#160;<small>(68k)</small>
+	        <span style="font-size: smaller">
+	          <br/>
+	          <a href="release-notes.html">Release Notes</a>
+	        </span>
+	      </p>
+	    </div>	
+
+		<section name="Welcome to PerfectJPattern">
+			<p>PerfectJPattern is a framework and catalogue of perfectionated and componentized Java Design Patterns. 
+			A componentized pattern is in essence a <b>context-independent</b>, <b>reusable</b> and <b>type-safe</b> 
+			variation of the original pattern that covers at least as many use-cases as the original pattern and 
+			that does not require developers to re-implement the same boilerplate code in every different context. 
+			Design Patterns are reusable in terms of design, <b>componentized patterns are reusable in terms of 
+			design and code.</b></p>
+
+			<p>PerfectJPattern is inspired by the original work of Prof. Dr. Bertrand Meyer 
+			<a href="http://se.ethz.ch/teaching/ws2006/0239/index.html"><b>Trusted Components</b></a> and Karine 
+			Arnout Thesis <a href="http://se.inf.ethz.ch/people/arnout/patterns/"><b>From Patterns to Components</b></a> 
+			conceptually possible in any language but their work is tailored to the Eiffel programming 
+			language e.g. strongly relies on <a href="http://en.wikipedia.org/wiki/Eiffel_(programming_language)#Agents">
+			Eiffel's Agent mechanism</a> and <a href="http://en.wikipedia.org/wiki/Eiffel_(programming_language)#.22Design_by_Contract.22">
+			Eiffel's Design by Contract</a> whereas there are no such features in Java. The Agent mechanism natively supported
+			in Eiffel is equivalent to the <a href="http://www.onjava.com/pub/a/onjava/2003/05/21/delegates.html">Delegates</a> 
+			Language feature, supported natively in other languages e.g. .NET C# but not in Java.</p>		
+				
+			<p>The term <b>Component</b> used all over PerfectJPattern is Prof. Dr. Bertrand Meyer's definition: 
+			<i><b>"... a software component is a reusable software element, typically some library classes, 
+			usually in source form (not binary form), which differs from Clemens Szyperski's view of 
+			components."</b></i> Meyer was already writing in 1997: <i>"A successful pattern
+			cannot just be a book description: it must be a <b>software component</b>"</i>.</p>			
+
+			<p>Several advantages of relying on a library of componentized Design Patterns:
+			<ul>
+				<li>Developers are relieved from the burden of having to re-implement hence duplicate
+				the same code over and over with only context-specific differences e.g. in the Observer 
+				Pattern the Subject implementation requires handling and iterating a collection 
+				of Observer instances.</li>
+				<li>Because Design Patterns are specified through descriptions, UML diagrams and
+				non-reusable sample code; more often than not the ultimate developers' implementations 
+				are inexact, inefficient, defective or hardly reusable.</li>
+				<li>Design Patterns can be naturally combined to resolve specific design problems;
+				relying on a Patterns Library will boost creating such combinations or even provide 
+				natural combinations out of the box e.g. Composite Commands.</li>
+			</ul>
+			</p>			
+		</section>
+		
+		<section name="Project Scope">
+			<p>The scope of this project is to build and offer to the Java community:
+			<ul>
+				<li>A foundation of reusable componentized version of all known Design Patterns including not 
+				only those from GoF but also others relevant to the Java platform e.g. Generic DAO implementation.</li>
+				<li>Pattern extensions and design gadgets e.g. a <code>SynchronizedObserver</code> proxy
+				that would protect any <code>Observer</code> implementation from "race hazards" 
+				if notified concurrently from multiple Subjects notifying from separate threads.</li>
+				<li>Blueprints on top of the patterns catalog: designing applications as combinations 
+				of componentized design patterns assembled using an IoC container e.g. Spring</li>
+			</ul> 
+			</p>
+		</section>
+		
+		<section name="Acknowledgements">
+			<div style="float: right;">
+				<br/>
+				<a href="http://astah.net/company"><img src="images/changevision_logo.gif" border="0" alt="Chanve Vision, Inc." /></a>
+				<br/>
+				<a href="http://www.ej-technologies.com/products/jprofiler/overview.html"><img src="images/jprofiler_medium.png" border="0" alt="ej-technologies" /></a>
+				<br/>
+				<a href="http://www.atlassian.com/software/clover/overview"><img src="images/clover_logo.gif" width="89" height="33" border="0" alt="Code Coverage by Clover"/></a>
+				<br/>
+				<a href="http://www.yworks.com/"><img src="images/yworks_logo.gif" border="0" alt="yWorks" /></a>
+			</div>
+			<p>We would like to thank:
+			<ul>
+				<li><a href="http://astah.net/company">Change Vision, Inc.</a> for providing a free license of <a href="http://astah.net">Astah Professional</a> for creating top quality UML diagrams.</li>
+				<li><a href="http://www.ej-technologies.com/products/jprofiler/overview.html">ej-technologies</a> for providing a free license of the <a href="http://www.ej-technologies.com/jprofiler/overview.html">JProfiler</a> for efficiently resolving performance bottlenecks, memory leaks and threading issues.</li>
+				<li><a href="http://www.atlassian.com/company">Atlassian</a> for providing a free license of <a href="http://www.atlassian.com/software/clover/overview">Clover</a> for generating test coverage reports.</li>
+				<li><a href="http://www.yworks.com/">yWorks</a> for providing a free license of <a href="http://www.yworks.com/en/products_ydoc.htm">yDoc</a> for automatically generating UML diagrams along with the Javadocs.</li>
+			</ul> 
+			</p>						
+		</section>
+	</body>
+</document>

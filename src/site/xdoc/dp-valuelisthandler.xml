@@ -1,0 +1,34 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Value List Handler Design Pattern</title>
+  </properties>
+  <body>
+    <section name="Value List Handler Pattern">
+      <p><i>You have a remote client that wants to iterate over a large result list. Use a 
+      Value List Handler to search, cache the results, and allow the client to traverse and 
+      select items from the results.</i>
+      </p>      		
+    </section>    
+    <section name="Componentized Value List Handler Pattern">   
+       	<p>PerfectJPattern's componentized version of the Value List Handler Pattern provides the following advantages:     
+        <ul>
+        	<li><b>: </b></li>
+        </ul>        
+    	<br/>
+    	<br/>
+    	<br/>
+    	<br/>	           	
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/valuelisthandler_class.png" border="0" alt="" title="PerfectJPattern's Value List Handler Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/jee/integration/valuelisthandler/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        </ul>
+    	</p>                       	  
+    </section>  
+  </body>
+</document>
+

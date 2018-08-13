@@ -1,0 +1,38 @@
+<assembly>
+  <id>spring-src</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <includes>
+        <include>README*</include>
+        <include>LICENSE*</include>
+        <include>COPYING*</include>
+        <include>NOTICE*</include>
+      </includes>
+    </fileSet>
+    
+    <!-- perfectjpattern-spring -->
+    <fileSet>
+      <directory>target/site/perfectjpattern-spring/apidocs</directory>
+      <outputDirectory>docs/spring</outputDirectory>
+      <includes>
+        <include>**</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>perfectjpattern-spring</directory>
+      <outputDirectory>perfectjpattern-spring</outputDirectory>
+      <includes>
+        <include>README*</include>
+        <include>*.xml</include>
+        <include>*.license</include>
+        <include>src/**</include>
+      </includes>
+      <excludes>
+        <exclude>src/site/**</exclude>
+      </excludes>
+    </fileSet>
+  </fileSets>
+</assembly>

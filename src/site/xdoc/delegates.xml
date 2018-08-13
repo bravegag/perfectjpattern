@@ -1,0 +1,61 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Delegates</title>
+  </properties>
+  <body>
+    <section name="Delegates">
+       <p>Allows multiple objects implementing methods with different name or type (instance or static) 
+       but compatible signatures to be used interchangeably.</p> 
+    </section>    
+    <section name="Implementation">
+       <p>
+       Delegates is conceptually similar to the notion of function pointers. Java does not provide Delegates 
+       natively therefore the need for this implementation, see 
+       <a href="http://www.onjava.com/pub/a/onjava/2003/05/21/delegates.html">A Java Programmer Looks at C# Delegates</a> 
+       article. See also <a href="http://java.sun.com/docs/white/delegates.html">Sun's critic of Delegates</a>.      
+       <br/>
+       <br/>
+       The introduction of the Delegates implementation in PerfectJPattern is more a means to componentize 
+       some of the Design Patterns rather than offering Delegates as ultimate design building block for end
+       applications. The Delegates feature is nevertheless included in PerfectJPattern public API for cases 
+       where would be needed e.g. it effectively abstracts from low-level Java Reflection machinery.
+       <br/>
+       <br/>
+       Notes about PerfectJPattern's Delegates implementation:
+       <ul>
+       	<li>A function pointer is represented as a Java interface that exposes one single method</li>
+       	<li>There is no strongly typed way to identify via Reflection a Java Method so far. When building the 
+       	delegate, the target method is referred by its <code>String</code> name. The tentative to build a 
+       	delegate over a method that no longer exists or its signature does not match, will result in a 
+       	predefined Runtime exception. 
+       	</li>      	
+       	<li>Once the Delegate has been successfully built, interface method return type covariance rules apply.</li>
+       </ul>
+       <br/>
+       <br/>
+	   Technically speaking PerfectJPattern's Delegates implementation is type-safe, you will never get a Runtime error
+	   due to a data type mismatch operation while using PerfectJPattern API i.e. you will never get a 
+	   <a href="http://java.sun.com/javase/6/docs/api/java/lang/ClassCastException.html">ClassCastException</a>. If you
+	   do, then it is a bug and will need to be fixed. Note that while the possible error has been shifted from Compiler to 
+	   Runtime, technically speaking this is not type-unsafe. What happens is that PerfectJPattern's implementation will 
+	   detect the erroneous situation at the framework level and translate it into a precondition violation at the API 
+	   level using e.g. <a href="http://java.sun.com/javase/6/docs/api/java/lang/IllegalArgumentException.html">
+	   IllegalArgumentException</a>. Precondition violations are to be discovered at testing time by having adequate test 
+	   coverage in place. 
+       <br/>
+       <br/>	         
+       <h3>UML Class Design</h3>
+	   <br/>
+	   <img valign="top" src="images/delegates_class.png" border="0" alt="" title="PerfectJPattern's Delegate Pattern" />		
+	   <br/>
+       <h3>Example</h3>
+       <ul> 
+           <li><a href="xref/org/perfectjpattern/core/behavioral/delegate/ISizeAware.html"><b>ISizeAware.java</b></a>: Interface that offers size awareness</li>
+           <li><a href="xref/org/perfectjpattern/core/behavioral/delegate/Example.html"><b>Example.java</b></a>: Example startup main</li>
+       </ul>
+       </p>
+    </section>  
+  </body>
+</document>
+

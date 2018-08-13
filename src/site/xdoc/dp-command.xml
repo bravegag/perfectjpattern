@@ -1,0 +1,38 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+<title>Command Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF Command Pattern">
+      <p><i>Encapsulate a request as an object, thereby letting you parameterize clients with different requests, 
+      queue or log requests, and support undoable operations.</i> 
+      </p>
+    </section>    
+    <section name="Componentized Command Pattern">   
+    	<p>PerfectJPattern's componentized version of the Command Pattern provides the following advantages:     
+        <ul>
+        	<li><b>Parameterizes the Invoker, Command and Receiver</b> with generic parameter and return 
+        	types. This parameterization allow passing user-defined arguments to the Invoker and therefore 
+        	to the Command and Receiver; it also support optionally associating a possible Result value 
+        	out of the execution of the Receiver.</li>
+        </ul>
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/command_class.png" border="0" alt="" title="PerfectJPattern's Command Pattern" />		
+		<br/>
+        <h3>UML Sequence Diagram</h3>
+		<br/>
+		<img valign="top" src="images/command_sequence.png" border="0" alt="" title="PerfectJPattern's Command Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/command/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/command/Open.html"><b>Open.java</b></a>: Concrete receiver implementation</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/command/Paste.html"><b>Paste.java</b></a>: Concrete receiver implementation</li>      
+        </ul>
+        </p>
+    </section>
+  </body>
+</document>
+

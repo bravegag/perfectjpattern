@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<faqs title="FAQ">
+  <part id="General">
+    <faq id="what-is-perfectjpattern">
+      <question>What is PerfectJPattern?</question>
+      <answer>
+        <p>
+          PerfectJPattern is a reusable library of fully or partially componentized implementation of known Design Patterns. The aim is to avoid or 
+          at least minimize the amount of code required to include a Design Pattern in your application design and code. PerfectJPattern focuses on 
+          providing implementations that are context-free. 
+        </p>
+      </answer>
+    </faq>
+
+    <faq id="why-yet-another-dp-library">
+      <question>Why yet another Design Patterns library?</question>
+      <answer>
+        <p>
+          In the web you will find plenty of example code, UML, descriptions and even small demonstration applications of Design Patterns, but there really 
+          isn't any componentized reusable and context-free library of Design Patterns that will fit any application-context, at least not for the Java platform.
+        </p>
+      </answer>
+    </faq>	
+
+    <faq id="what-does-perfectjpattern-buy-me">
+      <question>What does PerfectJPattern buy me?</question>
+      <answer>
+        <p>
+          PerfectJPattern's primary focus is reusability and high quality:  
+          <ul>
+          		<li>Context-free Design Patterns ready to use, lets you focus more on designing than implementing.</li>            
+          		<li>Strict separation of API vs. Implementation.</li>            
+          		<li>Strict code conventions automatically reviewed with Checkstyle.</li>
+          		<li>Automatic quality assessment reports e.g. FindBugs, PMD, JDepends, Checkstyle.</li>          		
+          		<li>Over 95% source test coverage.</li>          		
+          		<li>Quality documentation + examples.</li>          		
+          </ul>          
+        </p>
+      </answer>
+    </faq>
+  </part>
+</faqs>

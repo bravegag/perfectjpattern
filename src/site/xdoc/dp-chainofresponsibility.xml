@@ -1,0 +1,53 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Chain Of Responsibility Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF Chain of Responsibility Pattern">
+      <p><i>Avoid coupling the sender of a request to its receiver by giving more than one object 
+      a chance to handle the request. Chain the receiving objects and pass the request along the chain until 
+      an object handles it.</i>
+      </p>
+    </section>    
+    <section name="Componentized Chain of Responsibility Pattern">   
+       	<p>PerfectJPattern's componentized version of the Chain of Responsibility Pattern provides the following advantages:     
+        <ul>
+        	<li><b>Parameterizes the Handler interface</b> with generic request parameter, making the pattern
+        	type-safe and flexible to user-defined context-specific request definitions.</li>
+        	<li><b>Clear separation of concerns </b> as handling logic is separated from decision-making logic 
+        	i.e. handle() vs. start(), see <a href="http://www.javaworld.com/javaworld/jw-08-2004/jw-0816-chain.html">The 
+        	Chain of Responsibility pattern's pitfalls and improvements</a> article.</li>
+        	<li><b>Flexible decision-making with the Strategy Pattern</b> e.g. decision on whether to forward requests to 
+        	successor Handler instances. <code>IHandler</code> instances may be configured with a <code>IChainStrategy</code> 
+        	that parameterize the Chain-continuation behavior. It was provided two concrete implementations 
+        	<code>AllHandleStrategy</code> and <code>OnlyOneHandleStrategy</code> where the later is the use-case 
+        	covered in the original GoF implementation and the default Strategy.</li>
+        </ul>
+    	<br/>
+    	<br/>
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/chainofresponsibility_class.png" border="0" alt="" title="PerfectJPattern's Chain of Responsibility Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/chainofresponsibility/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/chainofresponsibility/AbstractWidget.html"><b>AbstractWidget.java</b></a>: Exposes two Chains of Responsibility, Help chain and Print chain </li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/chainofresponsibility/Application.html"><b>Application.java</b></a>: Concrete Handler implementation</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/chainofresponsibility/Dialog.html"><b>Dialog.java</b></a>: Concrete Handler implementation</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/chainofresponsibility/Button.html"><b>Button.java</b></a>: Concrete Handler implementation</li>      
+        </ul>
+        <h3>Extensions</h3>       
+        <ul>
+        	<li><b>Two flavors of Handler <code>IHandler</code> and <code>IParameterlessHandler</code> definitions: </b> Providing both user-defined 
+        	single-parameter request types and Chain that do not require any request parameter.</li>
+        	<li><b><code>NullHandler</code> implementation: </b> that completely avoids dealing with null values as Chain stop condition.</li>        	        	
+        	<li><b>Ready to use <code>AbstractHandler</code> and <code>AbstractParameterlessHandler</code> base abstract types: </b> that only 
+        	require subtypes providing the Handler business <code>handle(...)</code> implementation.</li>        
+        </ul>    	
+    	</p>                       	  
+    </section>  
+  </body>
+</document>
+

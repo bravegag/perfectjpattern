@@ -1,0 +1,34 @@
+<assembly>
+  <id>struts2-plugin-bin</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <directory></directory>
+      <outputDirectory></outputDirectory>
+      <includes>
+        <include>README*</include>
+        <include>LICENSE*</include>
+        <include>COPYING*</include>
+        <include>NOTICE*</include>
+      </includes>
+    </fileSet>
+    
+    <!-- perfectjpattern-struts2-plugin -->
+    <fileSet>
+      <directory>target/site/perfectjpattern-struts2-plugin/apidocs</directory>
+      <outputDirectory>docs/struts2-plugin</outputDirectory>
+      <includes>
+        <include>**</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>perfectjpattern-struts2-plugin/target</directory>
+      <outputDirectory></outputDirectory>
+      <includes>
+        <include>*.jar</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</assembly>

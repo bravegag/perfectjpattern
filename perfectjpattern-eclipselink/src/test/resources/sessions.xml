@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toplink-sessions version="11g (11.1.3.0.1)" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <session xsi:type="server-session" >
+      <name>default</name>
+      <event-listener-classes/>
+      <logging xsi:type="toplink-log">
+         <log-level>finest</log-level>
+      </logging>            
+      <primary-project xsi:type="xml">ExampleProject.xml</primary-project>
+      <login xsi:type="database-login">      	
+         <platform-class>oracle.toplink.platform.database.HSQLPlatform</platform-class>
+         <user-name>sa</user-name>
+         <sequencing>
+            <default-sequence xsi:type="table-sequence">
+               <name>default</name>
+            </default-sequence>
+         </sequencing>
+         <driver-class>org.hsqldb.jdbcDriver</driver-class>
+         <connection-url>jdbc:hsqldb:mem:test;hsqldb.tx=mvcc</connection-url>
+      </login>      
+   </session>
+</toplink-sessions>

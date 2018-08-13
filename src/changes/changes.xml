@@ -1,0 +1,120 @@
+<document>
+  <properties>
+    <title>PerfectJPattern History</title>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+  </properties>
+  <body>
+    <release version="1.0.2" date="20.10.2008" description="Added extending more powerful and reusable Spring Generic DAO">
+      <action dev="bravegag" type="add">
+        Added API and Spring componentized implementation of the Generic DAO Pattern 
+        Provided full test coverage of this new Pattern.
+      </action>
+    </release>
+    <release version="1.0.2" date="25.11.2007" description="Added Generic DAO Pattern">
+      <action dev="bravegag" type="add">
+        Added API and Hibernate componentized implementation of the Generic DAO Pattern 
+        Provided full test coverage of this new Pattern.
+      </action>
+    </release>
+    <release version="1.0.2" date="25.11.2007" description="Added Decorator Pattern">
+      <action dev="bravegag" type="add">
+        Added API and Core componentized implementation of the Decorator Pattern based
+        on the Reflection API. Provided full test coverage of this new Pattern.
+      </action>
+    </release>
+    <release version="1.0.2" date="24.11.2007" description="JEE and Examples sub-modules">
+      <action dev="bravegag" type="add">
+        Created two additional sub-projects: JEE for adding Java Design Patterns specific
+        to the java platform; Examples: Provides simple executable examples for all 
+        implemented Design Patterns.
+      </action>
+    </release>
+    <release version="1.0.2" date="23.11.2007" description="Prunning of Project reports">
+      <action dev="bravegag" type="update">
+        Made some pruning of the project reports so can accomodate two new sub-modules 
+        and the web site does not look overwhelming with so many reports.
+      </action>
+    </release>
+    <release version="1.0.2" date="19.11.2007" description="Added Composite Pattern">
+      <action dev="bravegag" type="add">
+        Added API and Core componentized implementation of the Composite Pattern based
+        on the Reflection API. Provided full test coverage of this new Pattern.
+      </action>
+    </release>
+    <release version="1.0.0" date="06.10.2007" description="Unrestrictive genericity">
+      <action dev="bravegag" type="update">
+        Parameterization of Command and Observer patterns was relaxed by removing the 
+        constrained genericity on IParameter etc. User's are free to constraint in their
+        subtypes but not forced to do it.
+      </action>
+    </release>
+    <release version="1.0.0" date="06.10.2007" description="Added build scripts">
+      <action dev="bravegag" type="add">
+        Scripts for Windows and Unix including all options for building using Maven 2.x
+      </action>
+    </release>
+    <release version="1.0.0" date="19.08.2007" description="Project documentation">
+      <action dev="bravegag" type="add">
+        Providing project content Overview: definitions, scope, vision and goals. Documentation
+        for implemented Design Patterns.
+      </action>
+    </release>
+    <release version="1.0.0" date="19.08.2007" description="Refactored Maven build to Multi-Project">
+      <action dev="bravegag" type="add">
+        Created separated maven modules: API (only interface definitions), Core (pattern implementations 
+        plus extensions e.g. concurrency) and parent Maven pom that contains only assembly, site building 
+        and project documentation.
+      </action>
+    </release>
+    <release version="1.0.0" date="05.08.2007" description="Comprehensive test coverage: 95% code coverage">
+      <action dev="bravegag" type="add">
+        Completed test suites for all implemented Design Patterns. Source test coverage on 95% reported by
+        Clover.
+      </action>
+    </release>    
+    <release version="1.0.0" date="02.07.2007" description="Added Visitor Pattern">
+      <action dev="bravegag" type="add">
+        Added API and Core componentized implementation of the Visitor Pattern based
+        on the existing Delegate Pattern.
+      </action>
+    </release>
+    <release version="1.0.0" date="25.06.2007" description="Added Delegate Pattern">
+      <action dev="bravegag" type="add">
+        Added API and Core implementation of the Delegate Pattern mainly imported existing 
+        implementation (from http://www.onjava.com/pub/a/onjava/2003/05/21/delegates.html) 
+        and refactored it to meet PerfectJPattern coding standards and componentization 
+        criteria.
+      </action>
+    </release>
+    <release version="1.0.0" date="24.06.2007" description="Added Factory Method Pattern API">
+      <action dev="bravegag" type="add">
+        Added Factory Method API super interface.
+      </action>
+    </release>
+    <release version="1.0.0" date="23.06.2007" description="Added Chain of Responsibility Pattern">
+      <action dev="bravegag" type="add">
+        Added API and Core implementation of the Chain of Responsibility Pattern.
+      </action>
+    </release>
+    <release version="1.0.0" date="20.06.2007" description="Added Command Pattern">
+      <action dev="bravegag" type="add">
+        Added API and Core implementation of the Command Pattern.
+      </action>
+    </release>
+    <release version="1.0.0" date="17.06.2007" description="Added Observer Pattern">
+      <action dev="bravegag" type="add">
+        Added API and Core implementation of the Observer Pattern.
+      </action>
+    </release>    
+    <release version="1.0.0" date="10.06.2007" description="Created the Maven project">
+      <action dev="bravegag" type="add">
+        Build setup, scketching code and some basic test coverage.
+      </action>
+    </release>
+    <release version="0.0.1" date="08.06.2007" description="Registered PerfectJPattern in sourceforge">
+      <action dev="bravegag" type="add">
+        Project registration in Sourceforge.
+      </action>
+    </release>
+  </body>
+</document>

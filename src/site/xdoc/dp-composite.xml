@@ -1,0 +1,45 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Composite Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF Composite Pattern">
+      <p><i>Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat 
+      individual objects and compositions of objects uniformly.</i>  
+      </p>      		
+    </section>    
+    <section name="Componentized Composite Pattern">   
+       	<p>PerfectJPattern offers a fully componentized version of the Composite pattern in Java. Users need 
+       	only to provide the Component interface and directly use the type-safe 
+       	<a href="xref/org/perfectjpattern/core/structural/composite/Composite.html"><b>Composite</b></a> 
+       	implementation. See example below.       	 
+    	<br/>
+    	<br/>
+    	If the specific context Component interface contains functions i.e. methods that should return a value 
+    	then the default <code>Composite</code> implementation returns null. Users are responsible to subclass 
+    	<code>Composite</code> and define how to aggregate the multiple returned values from specific Method.
+    	In future releases the aggregation mechanism will be improved.
+    	<br/>
+    	<br/>
+    	The <code>Composite</code> implementation extends <code>ArrayList</code> so it exposes all 
+    	<code>List</code> features to create the compositions. <code>ArrayList</code> implementation 
+    	was preferred over others for maximizing the speed of iterations.
+    	<br/>
+    	<br/>
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/composite_class.png" border="0" alt="" title="PerfectJPattern's Composite Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/structural/composite/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/composite/IGraphic.html"><b>IGraphic.java</b></a>: Abstract definition of Graphic and target Component to build Composites over</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/composite/Line.html"><b>Line.java</b></a>: Concrete component implementation</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/composite/Rectangle.html"><b>Rectangle.java</b></a>: Concrete component implementation</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/composite/Text.html"><b>Text.java</b></a>: Concrete component implementation</li>      
+        </ul>
+    	</p>                       	  
+    </section>  
+  </body>
+</document>

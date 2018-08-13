@@ -1,0 +1,63 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Quick Start</title>
+  </properties>
+  <body>
+    <section name="Quick Start">    	
+		<p>This guide will help you create an empty Java project that uses 
+		PerfectJPattern within minutes. This same procedure can also be used 
+		to get all the needed dependencies at once, then configure your
+		actual existing project to use them. 
+		<br/><br/>
+		<subsection name="Install Maven" id="maven">	
+			Download and install <a href="http://maven.apache.org/download.html"><b>Maven 2</b></a>
+  		</subsection>
+		<subsection name="Creating the Project" id="project">
+			To create a new empty project use the Archetype plugin:
+			<source>
+				$MAVEN_HOME/bin/mvn archetype:generate		
+			</source>
+			From the multiple project template choices, choose the default 
+			"maven-archetype-quickstart". You will then have to specify the 
+			details of your project say e.g.
+			<ul>
+				<li>groupId = client-demo</li>
+				<li>artifactId = client-demo</li>
+				<li>version = 1.0-SNAPSHOT</li>
+				<li>default package = clientdemo</li>
+			</ul>
+			A new project named "client-demo" will be created.			
+  		</subsection>
+		<subsection name="Add dependency to PerfectJPattern" id="dependency">
+			Open the pom.xml created under "client-demo" and <a href="/maven-dependency.html">
+			add dependency to PerfectJPattern</a>.	
+  		</subsection>
+		<subsection name="Build" id="build">
+			At this point you can use Maven 2 to build your project, PerfectJPattern 
+			and all transitive dependencies will be automatically downloaded to your 
+			local repository, usually $HOME/.m2/repository:
+			<source>
+				$MAVEN_HOME/bin/mvn install		
+			</source>				
+  		</subsection>
+		<subsection name="Generate IDE files" id="ide">
+			To generate files for your new "client-demo" project, choose one of the
+			commands below depending on your preferred IDE.
+			<br/><br/>
+			For Eclipse use:
+			<source>
+				$MAVEN_HOME/bin/mvn eclipse:eclipse -DdownloadSources=true	
+			</source>
+			
+            For IntelliJ IDEA use: 				
+			<source>
+				$MAVEN_HOME/bin/mvn idea:idea -DdownloadSources=true	
+			</source>
+			You can then import the generated project files into the specific IDE. 
+			The required dependencies will be listed under your project "Referenced Libraries".				
+  		</subsection>
+		</p>
+    </section>
+  </body>
+</document>

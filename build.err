@@ -1,0 +1,563 @@
+log4j:WARN No appenders could be found for logger (org.perfectjpattern.jee.integration.dao.AbstractDaoFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Aug 13, 2018 11:40:36 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Aug 13, 2018 11:40:36 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: OpenEJB http://tomee.apache.org/
+Aug 13, 2018 11:40:36 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Startup: Mon Aug 13 11:40:36 CEST 2018
+Aug 13, 2018 11:40:36 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Copyright 1999-2015 (C) Apache OpenEJB/TomEE Project, All Rights Reserved.
+Aug 13, 2018 11:40:36 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Version: 4.7.4
+Aug 13, 2018 11:40:36 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build date: 20160304
+Aug 13, 2018 11:40:36 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build time: 09:05
+Aug 13, 2018 11:40:36 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Aug 13, 2018 11:40:36 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.home = /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target
+Aug 13, 2018 11:40:36 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.base = /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target
+Aug 13, 2018 11:40:36 AM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@5b239d7d
+Aug 13, 2018 11:40:36 AM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Succeeded in installing singleton service
+Aug 13, 2018 11:40:36 AM org.apache.openejb.config.ConfigUtils searchForConfiguration
+INFO: Cannot find the configuration file [conf/openejb.xml].  Will attempt to create one for the beans deployed.
+Aug 13, 2018 11:40:36 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Security Service, type=SecurityService, provider-id=Default Security Service)
+Aug 13, 2018 11:40:36 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+Aug 13, 2018 11:40:37 AM org.apache.openejb.config.DeploymentsResolver processUrls
+INFO: Found EjbModule in classpath: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/test-classes
+Aug 13, 2018 11:40:37 AM org.apache.openejb.config.DeploymentsResolver loadFromClasspath
+INFO: Searched 10 classpath urls in 1107 milliseconds.  Average 110 milliseconds per url.
+Aug 13, 2018 11:40:37 AM org.apache.openejb.config.ConfigurationFactory loadApplication
+INFO: Beginning load: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/test-classes
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb Calculator: EjbDeployment(deployment-id=Calculator)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AutoConfig createContainer
+INFO: Auto-creating a container for bean Calculator: Container(type=STATELESS, id=Default Stateless Container)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AutoConfig deploy
+INFO: Configuring PersistenceUnit(name=default, provider=org.apache.openjpa.persistence.PersistenceProviderImpl)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default JDBC Database, type=Resource, provider-id=Default JDBC Database)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'Default JDBC Database' of type 'DataSource for 'default'.
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Unmanaged JDBC Database, type=Resource, provider-id=Default Unmanaged JDBC Database)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'Default Unmanaged JDBC Database' of type 'DataSource for 'default'.
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AutoConfig setJtaDataSource
+INFO: Adjusting PersistenceUnit default <jta-data-source> to Resource ID 'Default JDBC Database' from 'personDatabase'
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AutoConfig setNonJtaDataSource
+INFO: Adjusting PersistenceUnit default <non-jta-data-source> to Resource ID 'Default Unmanaged JDBC Database' from 'personDatabaseUnmanaged'
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionURL=jdbc:hsqldb:mem:test;create=true  [not valid in a container environment]
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionDriverName=org.hsqldb.jdbcDriver  [not valid in a container environment]
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionPassword=  [not valid in a container environment]
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionUserName=sa  [not valid in a container environment]
+Aug 13, 2018 11:40:38 AM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "/home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear" loaded.
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating TransactionManager(id=Default Transaction Manager)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating SecurityService(id=Default Security Service)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=Default JDBC Database)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=Default Unmanaged JDBC Database)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Container(id=Default Stateless Container)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.ReloadableEntityManagerFactory createDelegate
+INFO: PersistenceUnit(name=default, provider=org.apache.openjpa.persistence.PersistenceProviderImpl) - provider time 7ms
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=CalculatorRemote) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/classpath.ear/perfectjpattern-jee/Calculator!org.perfectjpattern.jee.business.servicelocator.ICalculatorRemote) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/classpath.ear/perfectjpattern-jee/Calculator) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5b239d7d
+Aug 13, 2018 11:40:38 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Aug 13, 2018 11:40:38 AM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Aug 13, 2018 11:40:38 AM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Aug 13, 2018 11:40:38 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 43 ms.
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=Calculator, ejb-name=Calculator, container=Default Stateless Container)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=Calculator, ejb-name=Calculator, container=Default Stateless Container)
+Aug 13, 2018 11:40:38 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=/home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear)
+2083  default  INFO   [main] openjpa.Runtime - OpenJPA dynamically loaded the class enhancer. Any classes that were not enhanced at build time will be enhanced when they are loaded by the JVM.
+1940  default  WARN   [main] openjpa.Enhance - Detected the following possible violations of the restrictions placed on property access persistent types:
+Bytecode analysis of the setter and getter methods for persistent property "org.perfectjpattern.example.model.Person.id" indicates that the two methods might be acting on different backing fields.  The setter method assigns to field "theId", while the getter method returns field "null".
+Bytecode analysis of the setter and getter methods for persistent property "org.perfectjpattern.example.model.Person.name" indicates that the two methods might be acting on different backing fields.  The setter method assigns to field "theName", while the getter method returns field "null".
+Bytecode analysis of the setter and getter methods for persistent property "org.perfectjpattern.example.model.Person.age" indicates that the two methods might be acting on different backing fields.  The setter method assigns to field "theAge", while the getter method returns field "null".
+2261  default  INFO   [main] openjpa.Runtime - Starting OpenJPA 2.4.0
+2282  default  INFO   [main] openjpa.jdbc.JDBC - Using dictionary class "org.apache.openjpa.jdbc.sql.HSQLDictionary".
+2503  default  INFO   [main] openjpa.jdbc.JDBC - Connected to HSQL Database Engine version 2.2 using JDBC driver HSQL Database Engine Driver version 2.3.2. 
+log4j:WARN No appenders could be found for logger (org.perfectjpattern.jee.integration.dao.AbstractDaoFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Aug 13, 2018 11:40:42 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Aug 13, 2018 11:40:42 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: OpenEJB http://tomee.apache.org/
+Aug 13, 2018 11:40:42 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Startup: Mon Aug 13 11:40:42 CEST 2018
+Aug 13, 2018 11:40:42 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Copyright 1999-2015 (C) Apache OpenEJB/TomEE Project, All Rights Reserved.
+Aug 13, 2018 11:40:42 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Version: 4.7.4
+Aug 13, 2018 11:40:42 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build date: 20160304
+Aug 13, 2018 11:40:42 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build time: 09:05
+Aug 13, 2018 11:40:42 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Aug 13, 2018 11:40:42 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.home = /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target
+Aug 13, 2018 11:40:42 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.base = /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target
+Aug 13, 2018 11:40:42 AM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@5b239d7d
+Aug 13, 2018 11:40:42 AM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Succeeded in installing singleton service
+Aug 13, 2018 11:40:42 AM org.apache.openejb.config.ConfigUtils searchForConfiguration
+INFO: Cannot find the configuration file [conf/openejb.xml].  Will attempt to create one for the beans deployed.
+Aug 13, 2018 11:40:42 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Security Service, type=SecurityService, provider-id=Default Security Service)
+Aug 13, 2018 11:40:42 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.DeploymentsResolver processUrls
+INFO: Found EjbModule in classpath: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/test-classes
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.DeploymentsResolver loadFromClasspath
+INFO: Searched 10 classpath urls in 1092 milliseconds.  Average 109 milliseconds per url.
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.ConfigurationFactory loadApplication
+INFO: Beginning load: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/test-classes
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb Calculator: EjbDeployment(deployment-id=Calculator)
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AutoConfig createContainer
+INFO: Auto-creating a container for bean Calculator: Container(type=STATELESS, id=Default Stateless Container)
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AutoConfig deploy
+INFO: Configuring PersistenceUnit(name=default, provider=org.apache.openjpa.persistence.PersistenceProviderImpl)
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default JDBC Database, type=Resource, provider-id=Default JDBC Database)
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'Default JDBC Database' of type 'DataSource for 'default'.
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Unmanaged JDBC Database, type=Resource, provider-id=Default Unmanaged JDBC Database)
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'Default Unmanaged JDBC Database' of type 'DataSource for 'default'.
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AutoConfig setJtaDataSource
+INFO: Adjusting PersistenceUnit default <jta-data-source> to Resource ID 'Default JDBC Database' from 'personDatabase'
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AutoConfig setNonJtaDataSource
+INFO: Adjusting PersistenceUnit default <non-jta-data-source> to Resource ID 'Default Unmanaged JDBC Database' from 'personDatabaseUnmanaged'
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionURL=jdbc:hsqldb:mem:test;create=true  [not valid in a container environment]
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionDriverName=org.hsqldb.jdbcDriver  [not valid in a container environment]
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionPassword=  [not valid in a container environment]
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionUserName=sa  [not valid in a container environment]
+Aug 13, 2018 11:40:43 AM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "/home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear" loaded.
+Aug 13, 2018 11:40:43 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating TransactionManager(id=Default Transaction Manager)
+Aug 13, 2018 11:40:43 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating SecurityService(id=Default Security Service)
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=Default JDBC Database)
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=Default Unmanaged JDBC Database)
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Container(id=Default Stateless Container)
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.ReloadableEntityManagerFactory createDelegate
+INFO: PersistenceUnit(name=default, provider=org.apache.openjpa.persistence.PersistenceProviderImpl) - provider time 7ms
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=CalculatorRemote) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/classpath.ear/perfectjpattern-jee/Calculator!org.perfectjpattern.jee.business.servicelocator.ICalculatorRemote) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/classpath.ear/perfectjpattern-jee/Calculator) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:44 AM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5b239d7d
+Aug 13, 2018 11:40:44 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Aug 13, 2018 11:40:44 AM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Aug 13, 2018 11:40:44 AM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Aug 13, 2018 11:40:44 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 40 ms.
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=Calculator, ejb-name=Calculator, container=Default Stateless Container)
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=Calculator, ejb-name=Calculator, container=Default Stateless Container)
+Aug 13, 2018 11:40:44 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=/home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear)
+2013  default  INFO   [main] openjpa.Runtime - OpenJPA dynamically loaded the class enhancer. Any classes that were not enhanced at build time will be enhanced when they are loaded by the JVM.
+log4j:WARN No appenders could be found for logger (org.perfectjpattern.jee.integration.dao.AbstractDaoFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Aug 13, 2018 11:40:45 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Aug 13, 2018 11:40:45 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: OpenEJB http://tomee.apache.org/
+Aug 13, 2018 11:40:45 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Startup: Mon Aug 13 11:40:45 CEST 2018
+Aug 13, 2018 11:40:45 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Copyright 1999-2015 (C) Apache OpenEJB/TomEE Project, All Rights Reserved.
+Aug 13, 2018 11:40:45 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Version: 4.7.4
+Aug 13, 2018 11:40:45 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build date: 20160304
+Aug 13, 2018 11:40:45 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build time: 09:05
+Aug 13, 2018 11:40:45 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Aug 13, 2018 11:40:45 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.home = /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target
+Aug 13, 2018 11:40:45 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.base = /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target
+Aug 13, 2018 11:40:45 AM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@6f27a732
+Aug 13, 2018 11:40:45 AM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Succeeded in installing singleton service
+Aug 13, 2018 11:40:45 AM org.apache.openejb.config.ConfigUtils searchForConfiguration
+INFO: Cannot find the configuration file [conf/openejb.xml].  Will attempt to create one for the beans deployed.
+Aug 13, 2018 11:40:45 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Security Service, type=SecurityService, provider-id=Default Security Service)
+Aug 13, 2018 11:40:45 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.DeploymentsResolver processUrls
+INFO: Found EjbModule in classpath: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/test-classes
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.DeploymentsResolver loadFromClasspath
+INFO: Searched 10 classpath urls in 1110 milliseconds.  Average 111 milliseconds per url.
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.ConfigurationFactory loadApplication
+INFO: Beginning load: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/test-classes
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb Calculator: EjbDeployment(deployment-id=Calculator)
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AutoConfig createContainer
+INFO: Auto-creating a container for bean Calculator: Container(type=STATELESS, id=Default Stateless Container)
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AutoConfig deploy
+INFO: Configuring PersistenceUnit(name=default, provider=org.apache.openjpa.persistence.PersistenceProviderImpl)
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default JDBC Database, type=Resource, provider-id=Default JDBC Database)
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'Default JDBC Database' of type 'DataSource for 'default'.
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Unmanaged JDBC Database, type=Resource, provider-id=Default Unmanaged JDBC Database)
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'Default Unmanaged JDBC Database' of type 'DataSource for 'default'.
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AutoConfig setJtaDataSource
+INFO: Adjusting PersistenceUnit default <jta-data-source> to Resource ID 'Default JDBC Database' from 'personDatabase'
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AutoConfig setNonJtaDataSource
+INFO: Adjusting PersistenceUnit default <non-jta-data-source> to Resource ID 'Default Unmanaged JDBC Database' from 'personDatabaseUnmanaged'
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionURL=jdbc:hsqldb:mem:test;create=true  [not valid in a container environment]
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionDriverName=org.hsqldb.jdbcDriver  [not valid in a container environment]
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionPassword=  [not valid in a container environment]
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionUserName=sa  [not valid in a container environment]
+Aug 13, 2018 11:40:46 AM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "/home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear" loaded.
+Aug 13, 2018 11:40:46 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating TransactionManager(id=Default Transaction Manager)
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating SecurityService(id=Default Security Service)
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=Default JDBC Database)
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=Default Unmanaged JDBC Database)
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Container(id=Default Stateless Container)
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.ReloadableEntityManagerFactory createDelegate
+INFO: PersistenceUnit(name=default, provider=org.apache.openjpa.persistence.PersistenceProviderImpl) - provider time 7ms
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=CalculatorRemote) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/classpath.ear/perfectjpattern-jee/Calculator!org.perfectjpattern.jee.business.servicelocator.ICalculatorRemote) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/classpath.ear/perfectjpattern-jee/Calculator) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:47 AM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@6f27a732
+Aug 13, 2018 11:40:47 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Aug 13, 2018 11:40:47 AM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Aug 13, 2018 11:40:47 AM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Aug 13, 2018 11:40:47 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 43 ms.
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=Calculator, ejb-name=Calculator, container=Default Stateless Container)
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=Calculator, ejb-name=Calculator, container=Default Stateless Container)
+Aug 13, 2018 11:40:47 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=/home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear)
+2046  default  INFO   [main] openjpa.Runtime - OpenJPA dynamically loaded the class enhancer. Any classes that were not enhanced at build time will be enhanced when they are loaded by the JVM.
+2053  default  INFO   [main] openjpa.Runtime - Starting OpenJPA 2.4.0
+2073  default  INFO   [main] openjpa.jdbc.JDBC - Using dictionary class "org.apache.openjpa.jdbc.sql.HSQLDictionary".
+2281  default  INFO   [main] openjpa.jdbc.JDBC - Connected to HSQL Database Engine version 2.2 using JDBC driver HSQL Database Engine Driver version 2.3.2. 
+Aug 13, 2018 11:40:49 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Aug 13, 2018 11:40:49 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: OpenEJB http://tomee.apache.org/
+Aug 13, 2018 11:40:49 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Startup: Mon Aug 13 11:40:49 CEST 2018
+Aug 13, 2018 11:40:49 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Copyright 1999-2015 (C) Apache OpenEJB/TomEE Project, All Rights Reserved.
+Aug 13, 2018 11:40:49 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Version: 4.7.4
+Aug 13, 2018 11:40:49 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build date: 20160304
+Aug 13, 2018 11:40:49 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build time: 09:05
+Aug 13, 2018 11:40:49 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Aug 13, 2018 11:40:49 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.home = /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target
+Aug 13, 2018 11:40:49 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.base = /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target
+Aug 13, 2018 11:40:49 AM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@6dbb137d
+Aug 13, 2018 11:40:49 AM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Succeeded in installing singleton service
+Aug 13, 2018 11:40:49 AM org.apache.openejb.config.ConfigUtils searchForConfiguration
+INFO: Cannot find the configuration file [conf/openejb.xml].  Will attempt to create one for the beans deployed.
+Aug 13, 2018 11:40:49 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Security Service, type=SecurityService, provider-id=Default Security Service)
+Aug 13, 2018 11:40:49 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.DeploymentsResolver processUrls
+INFO: Found EjbModule in classpath: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/test-classes
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.DeploymentsResolver loadFromClasspath
+INFO: Searched 10 classpath urls in 1084 milliseconds.  Average 108 milliseconds per url.
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.ConfigurationFactory loadApplication
+INFO: Beginning load: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/test-classes
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb Calculator: EjbDeployment(deployment-id=Calculator)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AutoConfig createContainer
+INFO: Auto-creating a container for bean Calculator: Container(type=STATELESS, id=Default Stateless Container)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AutoConfig deploy
+INFO: Configuring PersistenceUnit(name=default, provider=org.apache.openjpa.persistence.PersistenceProviderImpl)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default JDBC Database, type=Resource, provider-id=Default JDBC Database)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'Default JDBC Database' of type 'DataSource for 'default'.
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Unmanaged JDBC Database, type=Resource, provider-id=Default Unmanaged JDBC Database)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'Default Unmanaged JDBC Database' of type 'DataSource for 'default'.
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AutoConfig setJtaDataSource
+INFO: Adjusting PersistenceUnit default <jta-data-source> to Resource ID 'Default JDBC Database' from 'personDatabase'
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AutoConfig setNonJtaDataSource
+INFO: Adjusting PersistenceUnit default <non-jta-data-source> to Resource ID 'Default Unmanaged JDBC Database' from 'personDatabaseUnmanaged'
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionURL=jdbc:hsqldb:mem:test;create=true  [not valid in a container environment]
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionDriverName=org.hsqldb.jdbcDriver  [not valid in a container environment]
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionPassword=  [not valid in a container environment]
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionUserName=sa  [not valid in a container environment]
+Aug 13, 2018 11:40:50 AM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "/home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear" loaded.
+Aug 13, 2018 11:40:50 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating TransactionManager(id=Default Transaction Manager)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating SecurityService(id=Default Security Service)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=Default JDBC Database)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=Default Unmanaged JDBC Database)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Container(id=Default Stateless Container)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear
+Aug 13, 2018 11:40:50 AM org.apache.openejb.assembler.classic.ReloadableEntityManagerFactory createDelegate
+INFO: PersistenceUnit(name=default, provider=org.apache.openjpa.persistence.PersistenceProviderImpl) - provider time 8ms
+Aug 13, 2018 11:40:50 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=CalculatorRemote) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/classpath.ear/perfectjpattern-jee/Calculator!org.perfectjpattern.jee.business.servicelocator.ICalculatorRemote) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/classpath.ear/perfectjpattern-jee/Calculator) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:50 AM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@6dbb137d
+Aug 13, 2018 11:40:50 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Aug 13, 2018 11:40:50 AM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Aug 13, 2018 11:40:51 AM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Aug 13, 2018 11:40:51 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 41 ms.
+Aug 13, 2018 11:40:51 AM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=Calculator, ejb-name=Calculator, container=Default Stateless Container)
+Aug 13, 2018 11:40:51 AM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=Calculator, ejb-name=Calculator, container=Default Stateless Container)
+Aug 13, 2018 11:40:51 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=/home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear)
+log4j:WARN No appenders could be found for logger (org.perfectjpattern.jee.integration.dao.AbstractDaoFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Aug 13, 2018 11:40:53 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Aug 13, 2018 11:40:53 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: OpenEJB http://tomee.apache.org/
+Aug 13, 2018 11:40:53 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Startup: Mon Aug 13 11:40:53 CEST 2018
+Aug 13, 2018 11:40:53 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Copyright 1999-2015 (C) Apache OpenEJB/TomEE Project, All Rights Reserved.
+Aug 13, 2018 11:40:53 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Version: 4.7.4
+Aug 13, 2018 11:40:53 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build date: 20160304
+Aug 13, 2018 11:40:53 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build time: 09:05
+Aug 13, 2018 11:40:53 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Aug 13, 2018 11:40:53 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.home = /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target
+Aug 13, 2018 11:40:53 AM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.base = /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target
+Aug 13, 2018 11:40:53 AM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@524d6d96
+Aug 13, 2018 11:40:53 AM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Succeeded in installing singleton service
+Aug 13, 2018 11:40:53 AM org.apache.openejb.config.ConfigUtils searchForConfiguration
+INFO: Cannot find the configuration file [conf/openejb.xml].  Will attempt to create one for the beans deployed.
+Aug 13, 2018 11:40:53 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Security Service, type=SecurityService, provider-id=Default Security Service)
+Aug 13, 2018 11:40:53 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.DeploymentsResolver processUrls
+INFO: Found EjbModule in classpath: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/test-classes
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.DeploymentsResolver loadFromClasspath
+INFO: Searched 10 classpath urls in 1115 milliseconds.  Average 111 milliseconds per url.
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.ConfigurationFactory loadApplication
+INFO: Beginning load: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/test-classes
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb Calculator: EjbDeployment(deployment-id=Calculator)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AutoConfig createContainer
+INFO: Auto-creating a container for bean Calculator: Container(type=STATELESS, id=Default Stateless Container)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AutoConfig deploy
+INFO: Configuring PersistenceUnit(name=default, provider=org.apache.openjpa.persistence.PersistenceProviderImpl)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default JDBC Database, type=Resource, provider-id=Default JDBC Database)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'Default JDBC Database' of type 'DataSource for 'default'.
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Unmanaged JDBC Database, type=Resource, provider-id=Default Unmanaged JDBC Database)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'Default Unmanaged JDBC Database' of type 'DataSource for 'default'.
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AutoConfig setJtaDataSource
+INFO: Adjusting PersistenceUnit default <jta-data-source> to Resource ID 'Default JDBC Database' from 'personDatabase'
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AutoConfig setNonJtaDataSource
+INFO: Adjusting PersistenceUnit default <non-jta-data-source> to Resource ID 'Default Unmanaged JDBC Database' from 'personDatabaseUnmanaged'
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionURL=jdbc:hsqldb:mem:test;create=true  [not valid in a container environment]
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionDriverName=org.hsqldb.jdbcDriver  [not valid in a container environment]
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionPassword=  [not valid in a container environment]
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AppInfoBuilder$PersistenceProviderProperties apply
+WARNING: Removing PersistenceUnit(name=default) property openjpa.ConnectionUserName=sa  [not valid in a container environment]
+Aug 13, 2018 11:40:54 AM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "/home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear" loaded.
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating TransactionManager(id=Default Transaction Manager)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating SecurityService(id=Default Security Service)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=Default JDBC Database)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=Default Unmanaged JDBC Database)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Container(id=Default Stateless Container)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: /home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.ReloadableEntityManagerFactory createDelegate
+INFO: PersistenceUnit(name=default, provider=org.apache.openjpa.persistence.PersistenceProviderImpl) - provider time 6ms
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=CalculatorRemote) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/classpath.ear/perfectjpattern-jee/Calculator!org.perfectjpattern.jee.business.servicelocator.ICalculatorRemote) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/classpath.ear/perfectjpattern-jee/Calculator) --> Ejb(deployment-id=Calculator)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@524d6d96
+Aug 13, 2018 11:40:54 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Aug 13, 2018 11:40:54 AM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Aug 13, 2018 11:40:54 AM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Aug 13, 2018 11:40:54 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 41 ms.
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=Calculator, ejb-name=Calculator, container=Default Stateless Container)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=Calculator, ejb-name=Calculator, container=Default Stateless Container)
+Aug 13, 2018 11:40:54 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=/home/bravegag/code/perfectjpattern/perfectjpattern-jee/target/classpath.ear)
+2034  default  INFO   [main] openjpa.Runtime - OpenJPA dynamically loaded the class enhancer. Any classes that were not enhanced at build time will be enhanced when they are loaded by the JVM.
+2039  default  INFO   [main] openjpa.Runtime - Starting OpenJPA 2.4.0
+2060  default  INFO   [main] openjpa.jdbc.JDBC - Using dictionary class "org.apache.openjpa.jdbc.sql.HSQLDictionary".
+2284  default  INFO   [main] openjpa.jdbc.JDBC - Connected to HSQL Database Engine version 2.2 using JDBC driver HSQL Database Engine Driver version 2.3.2. 
+[2018-08-13 11:41:18,895] ERROR org.hibernate.tool.hbm2ddl.SchemaExport HHH000389: Unsuccessful: alter table order_ drop constraint FK_hcn3apiv2dgw9jcxaw511gf5u 
+[2018-08-13 11:41:18,895] ERROR org.hibernate.tool.hbm2ddl.SchemaExport user lacks privilege or object not found: PUBLIC.ORDER_ 
+[2018-08-13 11:41:18,895] ERROR org.hibernate.tool.hbm2ddl.SchemaExport HHH000389: Unsuccessful: alter table product_order_join_ drop constraint FK_jx4wthpxrmfcy581dsr4qxqlb 
+[2018-08-13 11:41:18,895] ERROR org.hibernate.tool.hbm2ddl.SchemaExport user lacks privilege or object not found: PUBLIC.PRODUCT_ORDER_JOIN_ 
+[2018-08-13 11:41:18,895] ERROR org.hibernate.tool.hbm2ddl.SchemaExport HHH000389: Unsuccessful: alter table product_order_join_ drop constraint FK_k160hlchgleybq6onv9083qas 
+[2018-08-13 11:41:18,895] ERROR org.hibernate.tool.hbm2ddl.SchemaExport user lacks privilege or object not found: PUBLIC.PRODUCT_ORDER_JOIN_ 
+[2018-08-13 11:41:20,042] WARN  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl HHH000402: Using Hibernate built-in connection pool (not for production use!) 
+[2018-08-13 11:41:20,603] ERROR org.hibernate.tool.hbm2ddl.SchemaExport HHH000389: Unsuccessful: alter table ORDER_ drop constraint FK_m01npo8v1luxu1qwtd2uuxut9 
+[2018-08-13 11:41:20,603] ERROR org.hibernate.tool.hbm2ddl.SchemaExport user lacks privilege or object not found: PUBLIC.ORDER_ 
+[2018-08-13 11:41:20,604] ERROR org.hibernate.tool.hbm2ddl.SchemaExport HHH000389: Unsuccessful: alter table PRODUCT_ORDER_JOIN_ drop constraint FK_8td485i4hajxq0rayu09b7ry1 
+[2018-08-13 11:41:20,604] ERROR org.hibernate.tool.hbm2ddl.SchemaExport user lacks privilege or object not found: PUBLIC.PRODUCT_ORDER_JOIN_ 
+[2018-08-13 11:41:20,604] ERROR org.hibernate.tool.hbm2ddl.SchemaExport HHH000389: Unsuccessful: alter table PRODUCT_ORDER_JOIN_ drop constraint FK_h6l0efjcl1sntvyatu482yhjs 
+[2018-08-13 11:41:20,604] ERROR org.hibernate.tool.hbm2ddl.SchemaExport user lacks privilege or object not found: PUBLIC.PRODUCT_ORDER_JOIN_ 
+[2018-08-13 11:41:20,860] WARN  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl HHH000402: Using Hibernate built-in connection pool (not for production use!) 

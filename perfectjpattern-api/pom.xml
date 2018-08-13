@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+ <parent>
+    <artifactId>perfectjpattern</artifactId>
+    <groupId>perfectjpattern</groupId>
+    <version>1.3.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>perfectjpattern</groupId>
+  <artifactId>perfectjpattern-api</artifactId>
+  <name>PerfectJPattern API</name>
+  <description>Pure API Interface definitions for all existing patterns either core or enterprise</description>	
+  <url>http://perfectjpattern.sourceforge.net/</url>
+  <scm>
+    <connection>scm:svn:https://perfectjpattern.svn.sourceforge.net/svnroot/perfectjpattern</connection>
+    <developerConnection>scm:svn:https://perfectjpattern.svn.sourceforge.net/svnroot/perfectjpattern</developerConnection>
+    <url>http://perfectjpattern.svn.sourceforge.net/viewvc/perfectjpattern/</url>
+  </scm>	
+  <reporting>
+    <outputDirectory>../target/site/${project.artifactId}</outputDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven-checkstyle-plugin.version}</version>
+        <configuration>
+          <enableRulesSummary>false</enableRulesSummary>
+          <configLocation>${project.parent.basedir}/checkstyle.xml</configLocation>
+        </configuration>
+      </plugin>      
+    </plugins>
+  </reporting>
+  <dependencies>
+    <dependency>
+      <groupId>perfectjpattern</groupId>
+      <artifactId>perfectjpattern-testcommon</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>				
+  </dependencies>  
+</project>

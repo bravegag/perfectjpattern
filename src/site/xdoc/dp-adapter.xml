@@ -1,0 +1,80 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Adapter Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF Adapter Pattern">
+      <p><i>Convert the interface of a class into another interface clients expect. 
+      Adapter lets classes work together that couldn't otherwise because of incompatible 
+      interfaces.</i>
+      </p>      		
+    </section>    
+    <section name="Componentized Adapter Pattern">   
+       	<p>PerfectJPattern's componentized version of the Adapter Pattern provides the following advantages:     
+        <ul>
+        	<li><b>Automatic adaptation</b>: PerfectJPattern's <a href="xref/org/perfectjpattern/core/structural/adapter/Adapter.html"><b>Adapter</b></a> 
+        	implementation minimizes or even lowers to zero the amount of work needed to adapt a given Adaptee 
+        	implementation to a Target interface. These are the possible scenarios when adapting an arbitrary 
+        	Adaptee to a Target interface:
+        	<ul>
+        		<li><b>Target interface is an exact subset of the Adaptee implementation</b> with perfect match of method 
+        		names and signatures then the adaptation is done automatically i.e. just using <code>Adapter</code></li>
+        		<li><b>Target interface is a subset of the Adaptee with slight differences in method name or type (static 
+        		or instance)</b> then the adaptation is done automatically i.e. just using <code>Adapter</code>.</li>
+        		<li><b>Adaptee implementation requires parameter conversion to match the Target interface</b> then you need 
+        		to extend <code>Adapter</code> and provide implementation for only those methods requiring 
+        		the conversion</li>        		
+        		<li><b>Adaptee implementation requires different behavior or additional methods to match the 
+        		Target interface</b> then you need to extend <code>Adapter</code> and provide implementation 
+        		for only those methods requiring the different behavior or implement the extra methods, see Example below</li>        		
+        	</ul>
+        	</li>
+        	<li><b>Pluggable adaptation strategy</b>: PerfectJPattern's Adapter implementation features configurable 
+        	strategies to adapt Adaptee implementations to Target interfaces. The current implementation offers two 
+        	concrete strategies:
+        	<ul>	
+        		<li><b>ExactMatchAdaptingStrategy: </b> Validates and resolves Target methods looking for 
+        		exact matches in Adapter and Adaptee method names and signatures. This is the default strategy.</li>
+        	    <li><b>NameMatchAdaptingStrategy: </b> Uses user-defined mapping of Adaptee method names to Target 
+        	    interface method names. Unspecified Target method names will default to the using the 
+        	    ExactMatchAdaptingStrategy implementation.</li>		
+        	</ul>
+        	</li>
+        </ul>        
+    	<br/>
+    	<br/>
+    	PerfectJPattern's Adapter implementation offers a good trade-off between flexibility and strong compiler 
+    	checking. The advanced reuse and flexibility heavily increases productivity by cutting development time 
+    	at the cost of shifting to Runtime some of the issues that would otherwise be detected by the compiler. 
+    	The compromise is because the Adapter will do its best matching the Adaptee implementation to the Target 
+    	interface, but e.g. changes in the Adaptee method signatures could lead to Runtime precondition violations 
+    	while constructing the Adapter. 	
+    	<br/>
+    	<br/>
+	    Technically speaking PerfectJPattern's Adapter implementation is type-safe, you will never get a Runtime 
+	    error due to a data type mismatch operation while using PerfectJPattern API i.e. you will never get a 
+	    <a href="http://java.sun.com/javase/6/docs/api/java/lang/ClassCastException.html">ClassCastException</a>. If you
+	    do then it is a bug and will need to be fixed. Note that while the possible error has been shifted from Compiler to 
+	    Runtime, technically speaking this is not type-unsafe. What happens is that PerfectJPattern's implementation will 
+	    detect the erroneous situation at the framework level and translate it into a precondition violation at the API 
+	    level using e.g. <a href="http://java.sun.com/javase/6/docs/api/java/lang/IllegalArgumentException.html">
+	    IllegalArgumentException</a>. Precondition violations are to be discovered at testing time by having adequate 
+	    test coverage in place.
+    	<br/>
+    	<br/>	           	
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/adapter_class.png" border="0" alt="" title="PerfectJPattern's Adapter Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/structural/adapter/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/adapter/List2QueueAdapter.html"><b>List2QueueAdapter.java</b></a>: Provides an implementation 
+        	that matches a <code>Queue</code> Target based on a <code>List</code> i.e. Adapts a <code>List</code> to a <code>Queue</code></li>      
+        </ul>
+    	</p>                       	  
+    </section>  
+  </body>
+</document>
+

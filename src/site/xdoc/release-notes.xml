@@ -1,0 +1,73 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Release Notes</title>
+  </properties>
+  <body>
+    <section name="Release Notes 1.3.0">
+      <p>Noteworthy! <b>Starting from version 1.3.0 PerfectJPattern license has changed 
+      from GNU GPL to the <a href="license.html">Apache licence 2.0</a>, however previous releases remain GNU GPL.</b>
+      <br/>
+      <br/>
+      Release 1.3.0 provides implementation for the following Design Patterns:
+      <ul>
+      	<li><a href="dp-state.html">Partially componentized State Pattern</a></li>
+      	<li><a href="dp-builder.html">Abstract definition of Builder</a></li>
+      	<li><a href="dp-valuelisthandler.html">Componentized Value List Handler Pattern</a></li>
+      </ul>
+      Additionally, the 1.3.0 release provides the following new features:
+      <ul>
+      	<li>New GenericDao implementation on top of <a href="http://www.eclipse.org/eclipselink/">EclipseLink</a></li>
+      	<li><a href="dp-genericdao.html">Componentized DAO</a>:
+      		<ul>
+      			<li><a href="xref/org/perfectjpattern/jee/api/integration/dao/IBaseReadOnlyDao.html">IBaseReadOnlyDao</a> findByNamedQuery(...) to execute externalized named queries with positional assignment of parameters</li>
+      			<li><a href="xref/org/perfectjpattern/jee/api/integration/dao/IBaseReadOnlyDao.html">IBaseReadOnlyDao</a> findByNamedQuery(...) to execute externalized named queries with named assignment of parameters</li>
+      			<li><a href="xref/org/perfectjpattern/jee/api/integration/dao/IBaseReadOnlyDao.html">IBaseReadOnlyDao</a> findAll(...) allows now to optionally provide an ordering criteria</li>
+      			<li><a href="xref/org/perfectjpattern/jee/api/integration/dao/IBaseReadOnlyDao.html">IBaseReadOnlyDao</a> findByPage(...) implements efficient JPA-based stateless Top N, in general the Page-by-Page iterator Pattern (a.k.a Paging)</li>
+      			<li><a href="xref/org/perfectjpattern/jee/api/integration/dao/IGenericReadOnlyDao.html">IGenericReadOnlyDao</a> findByPage(...) implements efficient JPA-based stateless combination of findByExample(...) with Top N, in general the Page-by-Page iterator Pattern (a.k.a Paging)</li>
+      		</ul> 
+      	</li>
+      	<li>Concrete Builder Pattern implementation for creating Composite instances more easily</li>
+      	<li>
+      		Introduction of the Test Support module offering the following features:
+	      	<ul>
+	      	<li>Automatic testing for Singleton implementations: <a href="xref/org/perfectjpattern/support/test/AbstractTestSingleton.html">AbstractTestSingleton</a></li>
+	      	<li>Test support for concrete State Pattern implementations: <a href="xref/org/perfectjpattern/support/test/AbstractTestState.html">AbstractTestState</a></li>
+	      	</ul>
+	     </li>
+      </ul>
+      There have been also many bug fixes and improvements e.g. performance improvements and benchmark tests for 
+      the <a href="dp-visitor.html">Visitor Pattern</a> 
+      </p>
+    </section>
+    <section name="Release Notes 1.0.2">
+      <p>Release 1.0.2 provides implementation for the following Design Patterns:
+      <ul>
+      	<li><a href="dp-adapter.html">Componentized Adapter</a> (Automatic Adapter)</li>
+      	<li><a href="dp-composite.html">Componentized Composite</a></li>
+      	<li><a href="dp-decorator.html">Componentized Decorator</a></li>
+      	<li><a href="dp-proxy.html">Componentized Proxy</a></li>
+      	<li><a href="dp-servicelocator.html">Componentized Service Locator</a></li>
+      	<li><a href="dp-genericdao.html">Componentized DAO</a>: JPA Base DAO, Hibernate Generic DAO and Spring Generic DAO</li>
+      </ul>
+      This release includes full example code for all Design Patterns. The examples are 
+      browsable online. Future versions will provide a showcase Web and/or Rich Client 
+      application.
+      </p>
+    </section>
+    <section name="Release Notes 1.0.0">
+      <p>Release 1.0.0 provides implementation for the following Design Patterns:
+      <ul>
+      	<li><a href="dp-factorymethod.html">Abstract definition of the Factory Method</a></li>
+      	<li><a href="dp-chainofresponsibility.html">Componentized Chain Of Responsibility</a></li>
+      	<li><a href="dp-command.html">Componentized Command</a></li>
+      	<li><a href="dp-visitor.html">Componentized Visitor</a></li>
+      	<li><a href="dp-observer.html">Componentized Observer</a></li>
+      </ul>
+      Provides an implementation of the <a href="delegates.html">Delegates</a> 
+      feature in Java approximating Eiffel Agents and C# Delegates. Conceptually 
+      Delegates is a type-safe OO version of function pointers feature present in C or C++.
+      </p>
+    </section>
+  </body>
+</document>

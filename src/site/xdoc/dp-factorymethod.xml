@@ -1,0 +1,56 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Factory Method Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF Factory Method Pattern">
+      <p><i>Define an interface for creating an object, but let subclasses decide which class to instantiate. 
+      Factory Method lets a class defer instantiation to subclasses.</i> 
+      </p>
+    </section>    
+    <section name="Componentized Factory Method Pattern">   
+    	<p>PerfectJPattern's version of the Factory Method Pattern only provides a supertype 
+    	base interface. The common base Factory interface defines a common <code>create()</code> method. 
+    	Possible parameters required by subtypes to create the specific instances may be added using 
+    	<a href="http://en.wikibooks.org/wiki/Java_Beans">Java Beans Setters</a>. Providing parameters 
+    	required for the creational code via Java Beans setters rather than via constructors makes 
+    	instances of <code>IFactoryMethod</code> reusable.
+    	<br/>
+    	<br/>
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/factorymethod_class.png" border="0" alt="" title="PerfectJPattern's Factory Method Pattern" />		
+		<br/>	
+        <h3>Example</h3>
+			<div align="left" class="java">
+			<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+				<tr>
+					<td nowrap="nowrap" valign="top" align="left">
+					<code>
+						<font color="#7f0055"><b>import&#160;</b></font><font color="#000000">org.perfectjpattern.core.api.creational.factorymethod.*;</font><br />
+						<font color="#ffffff">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font><br />
+						<font color="#3f5fbf">/**</font><br />
+						<font color="#ffffff">&#160;</font><font color="#3f5fbf">*&#160;Example&#160;of&#160;Factory&#160;Method&#160;subtype&#160;that&#160;creates&#160;Product&#160;with&#160;a</font><br />
+						<font color="#ffffff">&#160;</font><font color="#3f5fbf">*&#160;name&#160;parameter.&#160;</font><br />
+						<font color="#ffffff">&#160;</font><font color="#3f5fbf">*/</font><br />
+						<font color="#7f0055"><b>public&#160;</b></font><br />
+						<font color="#7f0055"><b>interface&#160;</b></font><font color="#000000">IProductFactory</font><br />
+						<font color="#7f0055"><b>extends&#160;</b></font><font color="#000000">IFactoryMethod&lt;Product&gt;</font><br />
+						<font color="#000000">{</font><br />
+						<font color="#ffffff">&#160;&#160;&#160;&#160;</font><font color="#3f7f5f">//------------------------------------------------------------------------</font><br />
+						<font color="#ffffff">&#160;&#160;&#160;&#160;</font><font color="#3f7f5f">//&#160;public</font><br />
+						<font color="#ffffff">&#160;&#160;&#160;&#160;</font><font color="#3f7f5f">//------------------------------------------------------------------------</font><br />
+						<font color="#ffffff">&#160;&#160;&#160;&#160;</font><font color="#7f0055"><b>public&#160;</b></font><font color="#7f0055"><b>void</b></font><br />
+						<font color="#ffffff">&#160;&#160;&#160;&#160;</font><font color="#000000">setName</font><font color="#000000">(</font><font color="#000000">String&#160;aName</font><font color="#000000">)</font><font color="#000000">;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font><br />
+						<font color="#000000">}</font>
+					</code>			    
+				   	</td>
+		   		</tr>
+			</table>
+		</div>
+        </p>
+    </section>
+  </body>
+</document>
+

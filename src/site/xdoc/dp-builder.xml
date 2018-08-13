@@ -1,0 +1,33 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Builder Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF Builder Pattern">
+      <p><i>Separate the construction of a complex object from its representation so that the same 
+      construction process can create different representations.</i>
+      </p>      		
+    </section>    
+    <section name="Componentized Builder Pattern">   
+       	<p>PerfectJPattern's componentized version of the Builder Pattern provides the following advantages:     
+        <ul>
+        	<li><b>: </b></li>
+        </ul>        
+    	<br/>
+    	<br/>
+    	<br/>
+    	<br/>	           	
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/builder_class.png" border="0" alt="" title="PerfectJPattern's Builder Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/creational/builder/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        </ul>
+    	</p>                       	  
+    </section>  
+  </body>
+</document>
+

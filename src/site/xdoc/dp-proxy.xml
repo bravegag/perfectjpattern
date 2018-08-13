@@ -1,0 +1,57 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Proxy Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF Proxy Pattern">
+      <p><i>Attach additional responsibilities to an object dynamically. Proxys provide a flexible 
+      alternative to subclassing for extending functionality.</i></p>
+    </section>    
+    <section name="Componentized Proxy Pattern">   
+       	<p>PerfectJPattern's offers a componentized version of the Proxy pattern. In order to implement
+       	proxies and take advantage of PerfectJPattern's implementation, users are required to extend 
+       	<a href="xref/org/perfectjpattern/core/structural/proxy/AbstractProxy.html"><b>AbstractProxy</b></a> 
+       	and optionally override the <code>invokeUnderlying</code> method. The <code>invokeUnderlying</code> 
+       	will intercept all method calls on the real Subject instance.
+       	See example below or checkout the <a href="xref/org/perfectjpattern/core/structural/proxy/SynchronizedProxy.html">
+       	<code>SynchronizedProxy.java</code></a> implementation that will protect any Subject type from 
+       	race-conditions. This implementation would replace the need for e.g. 
+       	<code>Collections.synchronizedCollection(...)</code>, <code>Collections.synchronizedSet(...)</code>, 
+       	<code>Collections.synchronizedList(...)</code>, etc. See example under 
+       	<a href="xref-test/org/perfectjpattern/core/behavioral/observer/TestAsynchronousSubject.html">
+       	<code>TestAsynchronousSubject.java</code></a> 
+    	<br/>
+    	<br/>
+       	Implementing proxies using PerfectJPattern's <code>AbstractProxy</code> offers the following 
+       	advantages:     
+        <ul>
+        	<li><b>Proxy identity</b> i.e. <code>equals</code> is automatically handled to match that of the 
+        	Subject, thus to the outside world the Proxy still is the Subject assuming <code>equals</code> 
+        	defines identity</li>
+        	<li><b>Automatic proxying</b>: proxying interfaces with large number of features in a snap. 
+        	Those Subject methods not defined by the Proxy will be automatically forwarded to the 
+        	Subject so you don't have to. Users are only required to provide implementation for those
+        	proxied methods minimally.</li>
+        	<li><b>Maintainability</b>: the Subject interface may change but the Proxies will be 
+        	minimally or not impacted at all. In the traditional manual implementation, once the Subject
+        	interface changed, all Proxies also had to be changed posing a high toll in maintainability.</li>
+        </ul>               	
+    	<br/>
+    	<br/>
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/proxy_class.png" border="0" alt="" title="PerfectJPattern's Proxy Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/structural/proxy/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/proxy/IGraphic.html"><b>IGraphic.java</b></a>: Subject interface type</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/proxy/Image.html"><b>Image.java</b></a>: Concrete Subject implementation</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/proxy/ImageProxy.html"><b>ImageProxy.java</b></a>: Concrete Proxy implementation</li>      
+        </ul>	
+    	</p>                       	  
+    </section>  
+  </body>
+</document>
+

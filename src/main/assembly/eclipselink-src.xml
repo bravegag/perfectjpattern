@@ -1,0 +1,38 @@
+<assembly>
+  <id>eclipselink-src</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <includes>
+        <include>README*</include>
+        <include>LICENSE*</include>
+        <include>COPYING*</include>
+        <include>NOTICE*</include>
+      </includes>
+    </fileSet>
+    
+    <!-- perfectjpattern-eclipselink -->
+    <fileSet>
+      <directory>target/site/perfectjpattern-eclipselink/apidocs</directory>
+      <outputDirectory>docs/eclipselink</outputDirectory>
+      <includes>
+        <include>**</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>perfectjpattern-eclipselink</directory>
+      <outputDirectory>perfectjpattern-eclipselink</outputDirectory>
+      <includes>
+        <include>README*</include>
+        <include>*.xml</include>
+        <include>*.license</include>
+        <include>src/**</include>
+      </includes>
+      <excludes>
+        <exclude>src/site/**</exclude>
+      </excludes>
+    </fileSet>
+  </fileSets>
+</assembly>

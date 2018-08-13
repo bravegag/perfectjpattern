@@ -1,0 +1,34 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>NullObject Design Pattern</title>
+  </properties>
+  <body>
+    <section name="NullObject Pattern">
+      <p>
+        Null Object is an object with defined neutral "null" behavior. The Null Object design pattern describes the uses of such objects and their behavior. 
+        Instead of using a null reference to convey absence of an object (for instance, a non-existent customer), one uses an object which implements the expected interface, but whose method body is empty. The advantage of this approach over a working default implementation is that a Null Object is very predictable and has no side effects: it does nothing.
+      </p>      		
+    </section>    
+    <section name="Componentized NullObject Pattern">
+       	<p>PerfectJPattern offers a fully componentized version of the Composite pattern in Java. Users need 
+       	only to provide the Component interface and directly use the type-safe 
+       	<a href="xref/org/perfectjpattern/core/structural/nullobject/NullObject.html"><b>NullObject</b></a> 
+       	implementation. See example below.
+    	<br/>
+    	<br/>
+    	The <code>NullObject</code> implementation enables creating null object instances of any type on the fly. Furthermore, functions invoked on the null object instance that return an UTD, will also be returned as a null object instance.
+    	<br/>
+    	<br/>
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/nullobject_class.png" border="0" alt="" title="PerfectJPattern's NullObject Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/structural/nullobject/Example.html"><b>Example.java</b></a>: Example startup main</li>
+        </ul>
+    	</p>
+    </section>  
+  </body>
+</document>

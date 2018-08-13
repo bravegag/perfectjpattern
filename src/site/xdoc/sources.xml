@@ -1,0 +1,80 @@
+<document>
+	<properties>
+		<author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+		<title>PerfectJPattern</title>
+	</properties>
+	<body>
+		<section name="Sources">
+			<p>Sources are available for checkout from the svn repository. Please review instructions under 
+			page <a href="source-repository.html">Source Repository.</a></p>
+		</section>		
+		
+		<section name="Structure">
+			<p>PerfectJPattern sources are separated in different sub-modules:
+			<ul>
+				<li><b>perfectjpattern-api: </b>Contains pure interface API abstractions for all design patterns. 
+				The goal is to have the client code depending as solely as possible from the API module rather
+				than concrete implementations. There are other reasons for the separation e.g. 
+					<ul>
+						<li>API module will less likely to change over time</li>
+						<li>API module has minimal compile dependencies</li>
+					</ul>
+				</li>
+				<li><b>perfectjpattern-core: </b>Provides implementation for core patterns e.g. GoF, Concurrency, etc</li>				
+				<li><b>perfectjpattern-jee: </b>Provides implementation for JEE-specific patterns e.g. Pure JPA DAO, Service Locator, Value List Handler etc.</li>			
+                <li><b>perfectjpattern-hibernate: </b>Provides extended Hibernate-based Generic DAO implementation.</li>
+                <li><b>perfectjpattern-eclipselink: </b>Provides extended EclipseLink-based Generic DAO implementation.</li>
+                <li><b>perfectjpattern-spring: </b>Provides extended Hibernate-Spring based Generic DAO implementation.</li>
+				<li><b>perfectjpattern-examples: </b>Example code for all Design Patterns implemented in the different modules.
+				</li>
+			</ul>
+			</p>
+		</section>		
+		
+		<section name="Building with Maven">
+			<p>Building the resources requires installing and configuring the latest version 
+			of <a href="http://maven.apache.org/">Maven 2</a> and running the following command:
+			<br/><br/>
+			<ul>
+				<li>For Windows systems use: <code>$ %PERFECTJPATTERN_HOME%\build.bat</code></li>
+				<li>For Unix systems use: <code>$ $PERFECTJPATTERN_HOME/build.sh</code></li>
+			</ul>				
+			<br/><br/>		
+			These scripts include most of the options I regularly use while building, there are some configuration 
+			profiles e.g. ydoc I only include in my Maven local settings.xml. Users may modify these scripts to 
+			remove the activation of the ydoc generation profile.
+			</p>			 
+		</section>		
+
+		<section name="Creating Eclipse project">
+			<p>Creating an Eclipse Project requires <a href="http://maven.apache.org/">Maven 2</a>
+			properly installed. Then you may either download PerfectJPattern source distributions from 
+			<a href="http://sourceforge.net/project/showfiles.php?group_id=198235">sourceforge</a>
+			or checkout the project from the Subversion repository as explained above.
+			<br/><br/>
+			Then execute the following command in the directory where the pom.xml is located:
+			<br/>
+			<code>mvn eclipse:eclipse</code>
+			<br/>
+			<br/>
+			Please note that if you download API source alone and try to create the Eclipse project from the
+			parent pom.xml it will fail. This is because the API source distribution does not include Core 
+			source distribution. You need to cd under perfectjpattern-api and run the command from there.
+			<br/>
+			<br/>
+			When all project files are generated then you may import them into Eclipse.
+			</p>			 
+		</section>		
+
+		<section name="Dependencies">
+			<p>If you download the binary jar files directly from 
+			<a href="http://sourceforge.net/project/showfiles.php?group_id=198235">sourceforge</a> you will also need 
+			to get all dependencies yourself e.g. PerfectJPattern Core depends on 
+			<a href="http://jakarta.apache.org/commons/lang/">Apache Commons Lang</a>. Please check under "Project 
+			Reports" for each project the dependency reports for an exhaustive list of all its dependencies 
+			and pointers to the location where to get them.
+			</p> 
+		</section>		
+
+	</body>
+</document>

@@ -1,0 +1,103 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>State Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF State Pattern">
+      <p><i>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</i>
+      </p>      		
+    </section>    
+    <section name="State Pattern">   
+       	<p>PerfectJPattern offers a partially componentized version of the State Pattern. The partial implementation 
+       	provides a base template plus several improvements. The main advantages of PerfectJPattern's 
+       	implementation from the design standpoint are:
+        <ul>
+        	<li><b>Context Parameterization: </b>Contexts are parameterized with an Abstract Factory that creates the 
+        	different State instances and is responsible for defining context-free transitions. Context-free transitions 
+        	are those that the next state is known for a given request without having to evaluate any Context data. 
+        	In the "FX Limit Order" example below, the requests Purge and Cancel are context-free whereas Insert is 
+        	context-dependent as it needs to validate the Order price against market prices. The design of introducing 
+        	an Abstract State Factory in order to decouple the Context from concrete States offers the flexibility of:
+        	<ul>
+        		<li>Extending the original State Abstract Factory for specializing specific State types</li>
+        		<li>Extending the original State Abstract Factory for introducing new State types</li>
+        		<li>Extending the original State Abstract Factory for modifying context-free transitions</li>
+        		<li>For state machines that are context-free the state transitions are defined in a single place</li>
+        	</ul>
+        	</li>
+        	<li><b>Reusable handling of "next State": </b>In PerfectJPattern's implementation each request is treated as a 
+        	<a href="http://en.wikipedia.org/wiki/First-class_object">second-class object</a> i.e. Requests are modeled as 
+        	one single method interface. Request should extend <code>IRequest</code> and can be referred to by its 
+        	interface class. This design makes implementations of State Pattern based on PerfectJPattern a bit verbose 
+        	i.e. one interface per Request. However, this approach provides the following advantages:
+        	<ul>
+        		<li>Reusable implementation of the "next State" functional concern i.e. defining and retrieving the next 
+        		State given a source State and a given Request</li>
+        		<li>Strongly typed implementation of Partial States as they will implement the exact Requests that they 
+        		require and not the full State interface, see example below. The full State implements all the requests.</li>
+            </ul>
+            </li>
+        	<li><b>Support for Partial States: </b>In the traditional State implementation all concrete States need 
+        	to implement all request methods. PerfectJPattern via the componentized <a href="xref/org/perfectjpattern/core/structural/adapter/Adapter.html">
+        	<b>Adapter</b></a> offers clients a mechanism to define partial State implementations i.e. Concrete State 
+        	instances that do not have to provide full blown implementation for all requests but only for the relevant 
+        	ones. Default behavior can be easily localized, see next point.</li>
+        	<li><b>Localization and parameterization of default behavior: </b>Single point to define default behavior for 
+        	those requests not implemented by the partial States. The shipped default implemented behavior is throwing 
+        	<a href="http://java.sun.com/javase/6/docs/api/java/lang/UnsupportedOperationException.html">UnsupportedOperationException</a>
+        	but this can be easily redefined while extending the 
+        	<code><a href="xref/org/perfectjpattern/core/behavioral/state/state/AbstractStateFactory.html">AbstractStateFactory</a></code>.
+        	</li>
+        </ul>        
+    	<br/>
+    	<br/>   	
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/state_class.png" border="0" alt="" title="PerfectJPattern's State Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        I decided to bring a more realistic example for demonstrating the use of the State Pattern rather than the usual toy ones. 
+        I found this use-case very interesting not only from the technical but also from the business standpoint. The example 
+        being modeled is the full life-cycle of a Forex <a href="http://en.wikipedia.org/wiki/Order_(exchange)#Limit_order">Limit Order</a>. 
+        The image below shows a possible state machine diagram for a FX Limit Order.
+		<br/>
+		<img valign="top" src="images/state_example.png" border="0" alt="" title="FX Limit Order" />		
+		<br/>	
+		<br/>
+		States:
+		<ul>
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/state/CreatedState.html"><b>CreatedState.java</b></a>: Created State</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/state/RejectedState.html"><b>RejectedState.java</b></a>: Rejected State</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/state/PendingState.html"><b>PendingState.java</b></a>: Pending State</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/state/FilledState.html"><b>FilledState.java</b></a>: Filled State</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/state/CanceledState.html"><b>CanceledState.java</b></a>: Canceled State</li>      			
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/state/ExpiredState.html"><b>ExpiredState.java</b></a>: Expired State</li>      			
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/state/PurgedState.html"><b>PurgedState.java</b></a>: Purged State</li>      			
+		</ul>
+		<br/>
+		<br/>
+		Requests:
+		<ul>
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/request/IInsertRequest.html"><b>IInsertRequest.java</b></a>: Request corresponding to inserting a FX Limit Order in the Platform</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/request/IPriceUpdateRequest.html"><b>PriceUpdateRequest.java</b></a>: Request corresponding to a market price update, updates bid and ask prices</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/request/ITimeUpdateRequest.html"><b>ITimeUpdateRequest.java</b></a>: Request corresponding to a time update</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/request/ICancelRequest.html"><b>ICancelRequest.java</b></a>: Request corresponding to cancel an Order</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/request/IPurgeRequest.html"><b>IPurgeRequest.java</b></a>: Request corresponding to purge an Order</li>      			
+		</ul>
+		<br/>
+		<br/>
+		Context and State Abstract Factory:		
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/Example.html"><b>Example.java</b></a>: Example startup main</li>  
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/FXLimitOrder.html"><b>FXLimitOrder.java</b></a>: FX Limit Order concrete <code>IContext</code> implementation</li>  
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/FXLimitOrderStateFactory.html"><b>FXLimitOrderStateFactory.java</b></a>: Concrete Abstract State Factory implementation</li>  
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/enums/BuySellEnum.html"><b>BuySellEnum.java</b></a>: Supports the FXLimitOrder implementation</li>  
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/enums/CurrencyPairEnum.html"><b>CurrencyPairEnum.java</b></a>: Supports the FXLimitOrder implementation</li>  
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/state/enums/ExpiryTypeEnum.html"><b>ExpiryTypeEnum.java</b></a>: Supports the FXLimitOrder implementation</li>  
+        </ul>
+    	</p>                       	  
+    </section>  
+  </body>
+</document>
+

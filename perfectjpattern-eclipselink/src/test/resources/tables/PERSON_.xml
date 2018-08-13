@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+   <short-name>PERSON_</short-name>
+   <columns>
+      <column>
+         <name>AGE</name>
+         <type>INTEGER</type>
+      </column>
+      <column>
+         <name>ID</name>
+         <type>NUMERIC</type>
+         <unique>true</unique>
+         <primary-key>true</primary-key>
+      </column>
+      <column>
+         <name>NAME</name>
+         <type>VARCHAR</type>
+         <size>25</size>
+      </column>
+   </columns>
+</table>

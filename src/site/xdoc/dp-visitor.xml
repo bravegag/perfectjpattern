@@ -1,0 +1,98 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Visitor Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF Visitor Pattern">
+      <p><i>Represent an operation to be performed on the elements of an object 
+      structure. Visitor lets you define a new operation without changing the classes of the elements 
+      on which it operates.</i>
+      </p>
+    </section>    
+    <section name="Componentized Visitor Pattern">   
+    	<p>PerfectJPattern's componentized version of the Visitor Pattern differs from the original GoF version in that:     
+        <ul>
+        	<li><b>Adding new visit operations is easy same as in the classic, and adding new Concrete Elements is 
+        	also easy</b> because PerfectJPattern's does not require adding a new abstract operation on the 
+        	<code>IVisitor&lt;E&gt;</code> type for each new Concrete Element type. The 
+        	<code>AbstractVisitor&lt;E&gt;.visit(&lt;E&gt;)</code> (cached alternative) method or its static 
+        	variation <code>AbstractVisitor&lt;E&gt;.reusableVisit(...)</code> (non-cached alternative) handle all 
+        	Element subtypes via double-dispatch.
+        	</li>
+        	<li><b>Provides non-intrusive implementation that </b> does not impose any requirements on the Elements 
+        	hierarchy i.e. the GoF implementation requires the Element hierarchy to be <code>Visitable</code> and thus implement 
+        	a repetitive and error-prone <code>accept(...)</code> method. In the classic GoF <code>Visitor</code> 
+        	implementation the <code>accept(...)</code> is error-prone because:
+	        	<ul>
+	        		<li>In most cases every Element in the hierarchy must repetitively implement the boilerplate 
+	        		<code>accept(...)</code> and mistakenly forget to call the <code>visitXXX</code> method or just 
+	        		call the wrong one e.g. <code>visitA</code> instead of <code>visitB</code> assuming B extends A</li>    
+	        		<li>Subclasses of concrete Element types might miss to override <code>accept(...)</code> 
+	        		altogether and this would default to calling the superclass <code>accept(...)</code> again 
+	        		triggering the wrong <code>visitXXX</code> method. In large Element hierarchies this bug will be 
+	        		hard to spot.</li>    
+	        	</ul>    
+        	</li>
+        	<li><b>Context-free ready to use <code>AbstractVisitor&lt;E&gt;</code> implementation</b> that natively 
+        	provides double-dispatch capability implemented on top of PerfectJPattern's Delegates. Adding new Concrete 
+        	Visitor is as simple as extending <code>AbstractVisitor&lt;E&gt;</code> (cached alternative) or otherwise 
+        	reusing the static <code>AbstractVisitor&lt;E&gt;.reusableVisit(...)</code> (non-cached alternative) 
+        	and implementing the relevant <code>visitXXX(...)</code> methods for each Element subtype of interest. 
+        	Concrete Visitors' visit method names must use the following convention <code>visitXXX(...)</code>.</li>
+        	<li><b>Similar performance as the classic implementation</b> specially when using the cached alternative 
+        	inheriting from <code>AbstractVisitor&lt;E&gt;.visit(&lt;E&gt;)</code>. See the Performance Benchmarking 
+        	point below</li>        	
+        </ul>
+        <h3>Performance Benchmarking</h3>
+        	A performance benchmark test case was developed to ensure that the performance degradation is minimal 
+        	when using PerfectJPattern's implementation compared to the classic one. The benchmark was implemented 
+        	in the test case <a href="xref-test/org/perfectjpattern/core/behavioral/visitor/TestPerformance.html">
+        	<b>TestPerformance.java</b></a>. The test case fixture is almost identical as the example below except 
+        	that it is hybrid: combines both the classic Visitor and PerfectJPattern's.	
+        	<br/>
+        	<br/>
+        	Results of the performance benchmark execution for the non cached case:
+			<source>
+				***************************************************
+				classic: avg per call '23647' nanos
+				perfectjpattern (no cache): avg per call '34534' nanos
+				***************************************************
+				classic: total elapsed '709' millis
+				perfectjpattern (no cache): total elapsed '1036' millis
+				perfectjpattern (no cache) took 146.04% must be lower than 250% the classic
+				***************************************************			
+			</source>
+        	<br/>
+        	<br/>
+        	Results of the performance benchmark execution for the cached case:
+			<source>
+				***************************************************
+				classic: avg per call '22728' nanos
+				perfectjpattern (cache): avg per call '23261' nanos
+				***************************************************
+				classic: total elapsed '682' millis
+				perfectjpattern (cache): total elapsed '698' millis
+				perfectjpattern (cache) took 102.35% must be lower than 115% the classic
+				***************************************************			
+			</source>        
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/visitor_class.png" border="0" alt="" title="PerfectJPattern's Visitor Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/visitor/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/visitor/ICarPart.html"><b>ICarPart.java</b></a>: Visitable Element tree root</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/visitor/Engine.html"><b>Engine.java</b></a>: Concrete Element type</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/visitor/Body.html"><b>Body.java</b></a>: Concrete Element type</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/visitor/Wheel.html"><b>Wheel.java</b></a>: Concrete Element type</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/visitor/Car.html"><b>Car.java</b></a>: Concrete Element type</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/visitor/PrintVisitor.html"><b>PrintVisitor.java</b></a>: Concrete Visitor type</li>      
+        	<li><a href="xref/org/perfectjpattern/core/behavioral/visitor/DoVisitor.html"><b>DoVisitor.java</b></a>: Concrete Visitor type</li>      
+        </ul>
+        </p>
+    </section>  
+  </body>
+</document>
+

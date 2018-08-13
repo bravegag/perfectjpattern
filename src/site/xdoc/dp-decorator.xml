@@ -1,0 +1,52 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Decorator Design Pattern</title>
+  </properties>
+  <body>
+    <section name="GoF Decorator Pattern">
+      <p><i>Attach additional responsibilities to an object dynamically. Decorators provide a flexible 
+      alternative to subclassing for extending functionality.</i></p>
+    </section>    
+    <section name="Componentized Decorator Pattern">   
+       	<p>PerfectJPattern's offers a componentized version of the Decorator pattern. In order to implement
+       	decorators and take advantage of PerfectJPattern's implementation, users are required to extend 
+       	<a href="xref/org/perfectjpattern/core/structural/decorator/AbstractDecorator.html"><b>AbstractDecorator</b></a>. 
+    	<br/>
+    	<br/>
+       	Implementing decorators using PerfectJPattern's <code>AbstractDecorator</code> offers the following 
+       	advantages:     
+        <ul>
+        	<li><b>Decorator identity</b> i.e. <code>equals</code> is automatically handled to match that of the Component, 
+        	thus to the outside world the Decorator still is the Component assuming <code>equals</code> defines 
+        	identity</li>
+        	<li><b>Automatic decoration</b>: decorating interfaces with large number of features in a snap. 
+        	Those Component methods not defined by the Decorator will be automatically forwarded to the 
+        	Component so you don't have to. Users are only required to provide implementation for those
+        	extra methods or decorated methods minimally.</li>
+        	<li><b>Maintainability</b>: the Component interface may change but the Decorators will be 
+        	minimally or not impacted at all. In the traditional manual implementation, once the Component 
+        	interface changed, all Decorator also had to be changed posing a high toll in maintainability.</li>
+        </ul>        
+    	<br/>
+    	<br/>
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/decorator_class.png" border="0" alt="" title="PerfectJPattern's Decorator Pattern" />		
+		<br/>
+		<br/>
+	        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/core/structural/decorator/Example.html"><b>Example.java</b></a>: Example startup main</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/decorator/IVisualComponent.html"><b>IVisualComponent.java</b></a>: Decorated Component interface type</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/decorator/IScrollableComponent.html"><b>IScrollableComponent.java</b></a>: Decorator interface type i.e. 
+        	IVisualComponent (component functionality) + IScrollable (added functionality)</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/decorator/TextView.html"><b>TextView.java</b></a>: Concrete Component implementation</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/decorator/ScrollDecorator.html"><b>ScrollDecorator.java</b></a>: Concrete Decorator implementation that adds functionality</li>      
+        	<li><a href="xref/org/perfectjpattern/core/structural/decorator/BorderDecorator.html"><b>BorderDecorator.java</b></a>: Concrete Decorator implementation that does not add functionality</li>      
+        </ul>	
+    	</p>                       	  
+    </section>  
+  </body>
+</document>
+

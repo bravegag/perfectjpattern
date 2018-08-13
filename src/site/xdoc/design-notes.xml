@@ -1,0 +1,137 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Design Notes</title>
+  </properties>
+  <body>
+    <section name="Main Design Principles">
+      <p>The main design principles that drive the implementation of PerfectJPattern are:
+      <ul>
+         <li><b><i>Modular composability</i></b>: PerfectJPattern components are designed in a way that 
+         can be freely re-combined to produce new software elements covering new unforeseen use-cases. 
+         One of the keys to achieve this goal is creating components that minimally implement a given 
+         requirement; thus avoiding tangled, inflexible and non-reusable implementations. An illustration 
+         of this concept is e.g. the <a href="dp-adapter.html">Componentized Adapter</a> whose minimal 
+         implementation barely translates the generic <code>AbstractSurrogate</code> superclass terms 
+         to the standard Adapter terms found in the literature e.g. <code>getComponent()</code> becomes 
+         <code>getTarget()</code>. Any attempts to fix a single criteria to map features from Adaptee 
+         to Target would not only result in a tangled Adapter implementation but would also seriously 
+         hinder its usability. The solution was to combine the Adapter with the Strategy Pattern to 
+         externalize the Adapting criteria functional concern, so that new unforeseen Adapting criteria 
+         can be plugged in with no need to modify or even subclass the componentized Adapter 
+         implementation.
+         </li>
+         <li><b><i>Self Documentation</i></b>: PerfectJPattern components are faithful to the 
+         description and intent of the original Pattern found in the scientific literature. This 
+         provides PerfectJPattern with free documentation. Similarly, building software
+      	 systems on top of Design Pattern components automatically provides documentation
+      	 for those systems.	
+      	</li>
+      </ul>
+      </p>
+    </section>
+    <section name="Naming interfaces with the 'I' prefix">
+      <p>As part of PerfectJPattern coding conventions, interface names are prefixed with 'I' 
+      e.g. <code>ISubject</code> and this convention is enforced with Checkstyle. I still carry 
+      this legacy from my initiation with Visual C++, COM and ATL. There are also stronger 
+      reasons why I prefer this convention over Sun Java Standard:
+      <ul>
+      	<li>Provides a clear separation of interfaces from classes e.g. finding 
+      	interface types using IDE tools is much simpler when all interfaces are prefixed with 'I'.</li>
+      	<li>Similarly analyzing dependency reports is much more helpful e.g. reviewing JDepend 
+      	reports to ensure that interface types depend only or mostly on other interface types.</li>
+      	<li>Leaves better choices for naming concrete class type implementations e.g. class
+      	Subject vs. SubjectImpl or the like. I personally dislike very much the 'Impl' 
+      	suffix. I believe that I am not alone regarding this preference.</li>
+      </ul>
+      </p>
+    </section>
+    <section name="PerfectJPattern Components: Trusted?">
+      <p>As explained in the welcome page, PerfectJPattern is inspired by the original work
+      of <a href="http://se.ethz.ch/~meyer/">Prof. Dr. Bertrand Meyer</a> on 
+      <a href="http://se.ethz.ch/teaching/ws2006/0239/index.html"><b>Trusted Components</b></a>.
+      Prof. Meyer's approach to the Trustability of components is by means of the semantically 
+      rich <a href="http://en.wikipedia.org/wiki/Eiffel_(programming_language)#.22Design_by_Contract.22">
+      Eiffel's Design by Contract</a> where every class carries its correctness specification 
+      by means of design contracts: invariants, pre- and post-conditions.
+      <br/><br/> 
+      PerfectJPattern's approximation to Trustability in Java is a combination of:
+      <ul>
+      	<li><b>Defensive programming</b> providing strong provider-client contracts in
+      	interface API method signatures enforced permanently. See the Design Notes next point 
+      	below 'Defensive Programming'.</li>
+      	<li><b>Test-driven development</b>: every release of PerfectJPattern enforces compliance 
+      	with the correctness specification with comprehensive Test Suites for every 
+      	pattern component.</li>     	
+      	<li><b>High quality build process</b>: enforces coding rules, automates bug detection, 
+      	and provides every bit of automated quality analysis reports available. Future 
+      	enhancements include Java OO Metrics once it is available a "Chidamber and Kemerer 
+      	Java Metrics" plugin for Maven.</li>
+      </ul>
+      <br/><br/>
+      Not only the provided components are carefully designed and tested but taken to the highest
+      quality build cycle.
+      </p>		
+    </section>
+    <section name="Defensive Programming approach">
+    <p>Currently PerfectJPattern embraces the 
+    <a href="http://en.wikipedia.org/wiki/Defensive_programming">Defensive Programming</a> 
+    approach basically creating a filtering layer in its API where client-side programming errors 
+    that violate PerfectJPattern's pre-conditions will permanently result (both in testing and 
+    release stages) into unchecked runtime exceptions declared as part of the API.
+    <br/><br/>
+    I did some research e.g. Eiffel and Java mailing lists and newsgroups and found out that
+    the general consensus is:
+    <ul>
+    	<li>Eiffel community in general embraces more Design by Contract and overall discards 
+    	Defensive Programming that yields negative impact on performance.</li>
+    	<li>Sun and the Java community in general embraces more the Defensive Programming approach 
+    	and this is reflected in the Sun's JDK implementation.
+    	</li>
+    </ul>
+    There is a note in Sun Java online guides regarding the use of the assert Java feature 
+    encouraging asserts to be used as a means of checking class invariants and post-conditions 
+    rather than pre-condition checking see 
+    <a href="http://java.sun.com/j2se/1.5.0/docs/guide/language/assert.html#usage-conditions"> 
+    Programming with Assertions: Putting Assertions Into Your Code</a>. According to this it is 
+    discouraged the use of assertions in public methods but to use instead 
+    <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/IllegalArgumentException.html">
+    IllegalArgumentException</a>
+    <br/><br/>
+    Since PerfectJPattern targets the Java community it was therefore initially adopted 
+    the Defensive Programming approach. This could change in the future though and move
+    to the use of assertions. It depends mostly on the feedback from the community.
+    <br/><br/>
+    In my personal view though, there is no precondition violation in PerfectJPattern that should be 
+    signaled using Exceptions (either checked or unchecked) and my reasoning is that any precondition 
+    violation occurring in the PerfectJPattern API layer is a client programming error rather than 
+    an end-user input mistake. Programming errors are to be discovered during testing and debugging 
+    cycles and not in production, therefore in my opinion assertions would be the correct tool.
+    </p>	
+    </section>
+    <section name="Logging support with SLF4J">
+    <p>
+    Logging in PerfectJPattern is implemented on top of <a href="http://www.slf4j.org/">
+    Simple Logging Facade for Java (SLF4J)</a><br/><br/> the main reasons for this are:
+    <ul>
+    	<li>Flexibility to plug any concrete Logging implementation of choice e.g. Log4J</li>
+    	<li>Logger is an interface! e.g. this provides a great platform to test code behavior 
+    	based on logging output.</li>
+    	<li>The concrete Logging implementation is statically hardwired at compile time thus SLF4J 
+    	does not suffer from the class loader problems observed when using JCL.</li>
+    </ul>    
+    </p>
+    </section>
+    <section name="Strict control on dependencies">
+    <p>I usually tend to stay away from libraries or any reusable piece of code with big dependency 
+    footprint. Therefore in PerfectJPattern it is minimized the dependency on third-party libraries 
+    e.g. the only third-party modules strictly required for reusing the core module are 
+    <a href="http://jakarta.apache.org/commons/lang/">Apache Commons Lang</a> and 
+    <a href="http://www.slf4j.org/">SLF4J</a>.
+    The Apache Commons Lang was imported because of its excellent utilities and its syntactic sugar 
+    e.g. <a href="http://commons.apache.org/lang/api-release/org/apache/commons/lang/Validate.html">
+    Validate utility class</a>.    
+    </p>
+    </section>
+  </body>
+</document>

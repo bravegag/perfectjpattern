@@ -1,0 +1,30 @@
+<document>
+  <properties>
+    <author email="bravegag@hotmail.com">Giovanni Azua Garcia</author>
+    <title>Service Locator Design Pattern</title>
+  </properties>
+  <body>
+    <section name="Service Locator Pattern">
+      <p><i>Centralizes distributed service object lookups, provids a centralized point of control, 
+         and may act as a cache that eliminates redundant lookups.</i></p>      		
+    </section>    
+    <section name="Componentized Service Locator Pattern">   
+       	<p>PerfectJPattern provides a fully componentized version of the Service Locator Pattern. The Service 
+       	Locator is implemented as a singleton that successfully hides naming API complexities and caches 
+       	services for its clients.
+    	<br/>
+    	<br/>
+        <h3>UML Class Design</h3>
+		<br/>
+		<img valign="top" src="images/servicelocator_class.png" border="0" alt="" title="PerfectJPattern's Service Locator Pattern" />		
+		<br/>
+        <h3>Example</h3>
+        <ul> 
+        	<li><a href="xref/org/perfectjpattern/jee/integration/dao/jpa/Example.html"><b>Example.java</b></a>: Uses ServiceLocator implementation 
+        	to retrieve a Local EJB</li>      
+        </ul>	
+    	</p>                       	  
+    </section>  
+  </body>
+</document>
+
